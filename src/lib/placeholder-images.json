@@ -1,3 +1,40 @@
 {
-  "placeholderImages": []
+  "placeholderImages": [
+    {
+      "id": "hero-avatar",
+      "description": "Professional avatar for hero section",
+      "imageUrl": "https://picsum.photos/seed/portfolio-avatar/600/600",
+      "imageHint": "professional avatar"
+    },
+    {
+      "id": "about-avatar",
+      "description": "Illustrated style avatar for about section",
+      "imageUrl": "https://picsum.photos/seed/about-me/500/500",
+      "imageHint": "illustrated character"
+    },
+    {
+      "id": "project-1",
+      "description": "E-commerce dashboard project",
+      "imageUrl": "https://picsum.photos/seed/project-1/800/600",
+      "imageHint": "software dashboard"
+    },
+    {
+      "id": "project-2",
+      "description": "SaaS Landing Page",
+      "imageUrl": "https://picsum.photos/seed/project-2/800/600",
+      "imageHint": "website screenshot"
+    },
+    {
+      "id": "project-3",
+      "description": "Mobile App UI",
+      "imageUrl": "https://picsum.photos/seed/project-3/800/600",
+      "imageHint": "mobile interface"
+    },
+    {
+      "id": "project-4",
+      "description": "AI Analytics Tool",
+      "imageUrl": "https://picsum.photos/seed/project-4/800/600",
+      "imageHint": "data visualization"
+    }
+  ]
 }
