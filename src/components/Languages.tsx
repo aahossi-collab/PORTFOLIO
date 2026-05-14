@@ -1,13 +1,12 @@
+
 "use client";
 
 import React from "react";
 import { motion } from "framer-motion";
 
 const languages = [
-  { name: "English", level: "Native", percent: 95, flag: "🇬🇧", color: "#00F5FF" },
-  { name: "Spanish", level: "Fluent", percent: 75, flag: "🇪🇸", color: "#A78BFA" },
-  { name: "German", level: "Intermediate", percent: 45, flag: "🇩🇪", color: "#F472B6" },
-  { name: "French", level: "Beginner", percent: 30, flag: "🇫🇷", color: "#FBBF24" },
+  { name: "Français", level: "Langue Maternelle", percent: 100, flag: "🇫🇷", color: "#00F5FF" },
+  { name: "Anglais", level: "Usage Professionnel", percent: 80, flag: "🇬🇧", color: "#A78BFA" },
 ];
 
 export function Languages() {
@@ -15,11 +14,11 @@ export function Languages() {
     <section id="languages" className="py-32">
       <div className="max-w-7xl mx-auto px-6">
         <div className="text-center mb-20 space-y-4">
-          <h2 className="text-5xl font-bold text-gradient-cyan-violet">Languages</h2>
-          <p className="text-white/60 text-xl font-light">Communication matters</p>
+          <h2 className="text-5xl font-bold text-gradient-cyan-violet">Langues</h2>
+          <p className="text-white/60 text-xl font-light">La communication au cœur de l'échange</p>
         </div>
 
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-12">
+        <div className="flex flex-wrap justify-center gap-12 md:gap-32">
           {languages.map((lang, idx) => (
             <motion.div
               key={lang.name}
