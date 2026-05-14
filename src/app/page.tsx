@@ -6,7 +6,6 @@ import { Languages } from "@/components/Languages";
 import { Projects } from "@/components/Projects";
 import { Contact } from "@/components/Contact";
 import { FloatingCircles } from "@/components/FloatingCircles";
-import { BrainstormingTool } from "@/components/BrainstormingTool";
 
 export default function Home() {
   return (
@@ -18,7 +17,6 @@ export default function Home() {
       <Experience />
       <Languages />
       <Projects />
-      <BrainstormingTool />
       <Contact />
       
       <footer className="py-12 text-center border-t border-border">
