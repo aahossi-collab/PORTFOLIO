@@ -29,6 +29,12 @@
       "description": "Alexandre Moreau Coach",
       "imageUrl": "https://site-web-sport.vercel.app/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fhero.27627447.jpg&w=3840&q=75",
       "imageHint": "fitness coach"
+    },
+    {
+      "id": "chouf_casa",
+      "description": "Chouf Casa - Explore Casablanca",
+      "imageUrl": "https://chouf-casa.vercel.app/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fhero.27627447.jpg&w=3840&q=75",
+      "imageHint": "casablanca exploration"
     }
   ]
 }

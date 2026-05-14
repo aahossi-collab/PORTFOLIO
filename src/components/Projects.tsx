@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import { PlaceHolderImages } from "@/lib/placeholder-images";
 import { Badge } from "@/components/ui/badge";
-import { ExternalLink, Github, ArrowRight } from "lucide-react";
+import { ExternalLink, ArrowRight } from "lucide-react";
 
 const projects = [
   {
@@ -32,6 +32,14 @@ const projects = [
     url: "https://site-web-sport.vercel.app",
     color: "group-hover:border-accent/50 group-hover:shadow-[0_0_30px_rgba(244,114,182,0.3)]"
   },
+  {
+    id: "chouf_casa",
+    title: "Chouf Casa",
+    tags: ["City Guide", "Urban Exploration", "Favorites Management", "Interactive Map"],
+    description: "Chouf Casa est une plateforme d'exploration de Casablanca, la 'Ville Blanche'. Elle permet de découvrir des lieux, des itinéraires, des cartes et de gérer ses favoris avec des filtres intelligents.",
+    url: "https://chouf-casa.vercel.app",
+    color: "group-hover:border-primary/50 group-hover:shadow-[0_0_30px_rgba(0,245,255,0.3)]"
+  },
 ];
 
 export function Projects() {
@@ -46,11 +54,11 @@ export function Projects() {
           <div className="flex gap-4 glass p-2 rounded-2xl">
             <Badge className="bg-primary text-black hover:bg-primary/80 px-4 py-2 rounded-xl border-none font-bold">Tous</Badge>
             <Badge variant="ghost" className="text-white/60 hover:text-white px-4 py-2 rounded-xl font-bold">Web</Badge>
-            <Badge variant="ghost" className="text-white/60 hover:text-white px-4 py-2 rounded-xl font-bold">B2B</Badge>
+            <Badge variant="ghost" className="text-white/60 hover:text-white px-4 py-2 rounded-xl font-bold">UI/UX</Badge>
           </div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-10">
           {projects.map((project, idx) => {
             const img = PlaceHolderImages.find((p) => p.id === project.id);
             if (!img) return null;
