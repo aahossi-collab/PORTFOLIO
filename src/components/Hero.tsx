@@ -1,4 +1,3 @@
-
 "use client";
 
 import React, { useEffect, useState } from "react";
@@ -7,16 +6,13 @@ import { Button } from "@/components/ui/button";
 import { PlaceHolderImages } from "@/lib/placeholder-images";
 import Image from "next/image";
 
-const titles = ["Full Stack Developer", "UI/UX Designer", "Software Architect", "Problem Solver"];
-const techStack = [
-  "Next.js", "TypeScript", "JavaScript", "Tailwind", "Redux", "React Query", "Node.js", "Express", "Nest.js", "Firebase", "PostgreSQL", "Prisma"
-];
+const titles = ["Full Stack Developer", "UI/UX Designer", "Software Architect"];
+const techStack = ["React", "Next.js", "TypeScript", "Node.js", "Firebase", "Tailwind", "Framer Motion", "PostgreSQL", "Prisma"];
 
 const orbitingIcons = [
-  { name: "React", icon: "⚛️" },
-  { name: "Node", icon: "🟢" },
-  { name: "TS", icon: "📘" },
-  { name: "Design", icon: "🎨" },
+  { name: "React", icon: "⚛️", color: "shadow-[0_0_15px_rgba(0,245,255,0.5)]" },
+  { name: "TS", icon: "📘", color: "shadow-[0_0_15px_rgba(167,139,250,0.5)]" },
+  { name: "Node", icon: "🟢", color: "shadow-[0_0_15px_rgba(244,114,182,0.5)]" },
 ];
 
 export function Hero() {
@@ -26,7 +22,7 @@ export function Hero() {
 
   useEffect(() => {
     const currentTitle = titles[index];
-    const speed = isDeleting ? 50 : 150;
+    const speed = isDeleting ? 50 : 100;
 
     const timeout = setTimeout(() => {
       if (!isDeleting && displayText === currentTitle) {
@@ -49,53 +45,60 @@ export function Hero() {
   const heroAvatar = PlaceHolderImages.find((img) => img.id === "hero-avatar")!;
 
   return (
-    <section id="home" className="relative min-h-screen pt-24 flex flex-col items-center justify-center overflow-hidden">
-      <div className="max-w-7xl mx-auto w-full px-6 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+    <section id="home" className="relative min-h-screen flex flex-col items-center justify-center pt-24 overflow-hidden">
+      <div className="max-w-7xl mx-auto w-full px-6 grid grid-cols-1 lg:grid-cols-2 gap-20 items-center z-10">
         {/* Left Side Content */}
         <motion.div 
           initial={{ opacity: 0, x: -50 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8 }}
-          className="space-y-6"
+          className="space-y-8"
         >
-          <h2 className="text-xl font-medium text-primary tracking-wide">WELCOME TO MY WORLD</h2>
-          <h1 className="text-5xl lg:text-7xl font-bold leading-tight">
-            Hi, I'm [Your Name]<br />
-            <span className="text-primary min-h-[1.2em] inline-block">
-              {displayText}
-              <span className="animate-pulse">|</span>
+          <div className="inline-block px-4 py-1 glass rounded-full text-xs font-bold tracking-[0.2em] text-primary uppercase">
+            Available for Projects
+          </div>
+          <h1 className="text-6xl lg:text-8xl font-bold leading-[0.95] tracking-tight">
+            Hi, I'm <br />
+            <span className="text-gradient-cyan-violet">
+              [Name]
             </span>
           </h1>
-          <p className="text-lg text-muted-foreground max-w-lg">
-            I build highly scalable, user-centric web applications with modern technologies. 
-            Transforming complex problems into elegant digital solutions.
+          <div className="text-2xl lg:text-4xl font-medium text-white/80 h-[1.2em]">
+            {displayText}
+            <span className="animate-pulse text-primary">|</span>
+          </div>
+          <p className="text-xl text-white/60 max-w-lg font-light leading-relaxed">
+            I specialize in building high-performance web applications with a focus on immersive user experiences and elegant code architecture.
           </p>
-          <div className="flex flex-wrap gap-4 pt-4">
-            <Button size="lg" className="rounded-full bg-primary hover:bg-primary/90 text-white px-8 h-12">
-              View Resume
+          <div className="flex flex-wrap gap-6 pt-4">
+            <Button className="glass rounded-xl px-8 h-14 text-lg font-bold border-primary/50 hover:bg-primary/20 hover:shadow-[0_0_20px_rgba(0,245,255,0.4)] transition-all">
+              Resume
             </Button>
-            <Button size="lg" variant="outline" className="rounded-full border-primary text-primary hover:bg-primary/10 px-8 h-12">
+            <Button variant="outline" className="glass rounded-xl px-8 h-14 text-lg font-bold border-secondary/50 hover:bg-secondary/20 hover:shadow-[0_0_20px_rgba(167,139,250,0.4)] transition-all">
               Contact Me
             </Button>
           </div>
         </motion.div>
 
-        {/* Right Side Image & Orbiting Icons */}
+        {/* Right Side Image & Orbit */}
         <motion.div 
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 1 }}
           className="relative flex justify-center items-center"
         >
-          <div className="relative w-72 h-72 lg:w-96 lg:h-96 rounded-full border-4 border-dashed border-primary/40 p-4 animate-spin-[20s] duration-slow">
-            <div className="w-full h-full rounded-full bg-white dark:bg-slate-900 shadow-2xl overflow-hidden relative z-10">
-              <Image 
-                src={heroAvatar.imageUrl} 
-                alt="Avatar" 
-                fill 
-                className="object-cover" 
-                data-ai-hint={heroAvatar.imageHint}
-              />
+          {/* Main Avatar Circle */}
+          <div className="relative w-80 h-80 lg:w-[450px] lg:h-[450px] rounded-full p-2 bg-gradient-to-tr from-primary via-secondary to-accent animate-spin-slow">
+            <div className="w-full h-full rounded-full glass overflow-hidden relative z-10 p-4">
+              <div className="w-full h-full rounded-full overflow-hidden relative border-2 border-white/20">
+                <Image 
+                  src={heroAvatar.imageUrl} 
+                  alt="Avatar" 
+                  fill 
+                  className="object-cover" 
+                  data-ai-hint={heroAvatar.imageHint}
+                />
+              </div>
             </div>
           </div>
 
@@ -103,36 +106,34 @@ export function Hero() {
           {orbitingIcons.map((icon, idx) => (
             <motion.div
               key={icon.name}
-              className="absolute bg-white dark:bg-slate-800 shadow-lg rounded-2xl p-3 text-2xl flex items-center justify-center z-20 cursor-pointer"
+              className={`absolute glass w-16 h-16 rounded-2xl flex items-center justify-center text-3xl z-20 ${icon.color}`}
               animate={{
                 rotate: [0, 360],
               }}
               transition={{
-                duration: 20,
+                duration: 25,
                 repeat: Infinity,
                 ease: "linear",
               }}
               style={{
-                top: "50%",
-                left: "50%",
-                transformOrigin: `${idx % 2 === 0 ? "150px" : "-150px"} ${idx < 2 ? "150px" : "-150px"}`,
+                top: "40%",
+                left: "40%",
+                transformOrigin: `${idx === 0 ? "180px" : idx === 1 ? "-180px" : "0 -180px"}`,
               }}
             >
-              <div style={{ transform: `rotate(-${idx * 90}deg)` }}>
-                {icon.icon}
-              </div>
+              <div style={{ transform: `rotate(-${idx * 120}deg)` }}>{icon.icon}</div>
             </motion.div>
           ))}
         </motion.div>
       </div>
 
       {/* Tech Marquee */}
-      <div className="w-full mt-24 py-12 glass border-y border-border overflow-hidden">
-        <div className="animate-marquee whitespace-nowrap flex items-center gap-16 px-8">
+      <div className="w-full mt-24 py-10 glass-pill border-x-0 rounded-none overflow-hidden bg-white/5">
+        <div className="animate-marquee whitespace-nowrap flex items-center gap-20">
           {[...techStack, ...techStack].map((tech, idx) => (
-            <span key={idx} className="text-2xl font-bold text-muted-foreground/40 hover:text-primary transition-colors cursor-default">
+            <div key={idx} className="glass px-6 py-2 rounded-xl text-sm font-bold tracking-widest text-white/40 hover:text-primary transition-all cursor-default uppercase">
               {tech}
-            </span>
+            </div>
           ))}
         </div>
       </div>

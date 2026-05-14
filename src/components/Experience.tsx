@@ -1,10 +1,8 @@
-
 "use client";
 
 import React from "react";
 import { motion } from "framer-motion";
 import { Briefcase, GraduationCap } from "lucide-react";
-import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
 
 const workExperience = [
   {
@@ -12,12 +10,14 @@ const workExperience = [
     company: "Tech Giant Inc.",
     period: "2021 - Present",
     description: "Led a team of 5 developers in building a scalable SaaS platform. Optimized database queries reducing load time by 40%.",
+    accent: "border-t-primary shadow-[0_-5px_15px_-5px_rgba(0,245,255,0.4)]"
   },
   {
     title: "Product Engineer",
     company: "Creative Studio",
     period: "2019 - 2021",
     description: "Designed and implemented interactive user interfaces for Fortune 500 clients using React and Framer Motion.",
+    accent: "border-t-primary shadow-[0_-5px_15px_-5px_rgba(0,245,255,0.4)]"
   },
 ];
 
@@ -27,43 +27,37 @@ const education = [
     institution: "Stanford University",
     period: "2017 - 2019",
     description: "Focused on Distributed Systems and Human-Computer Interaction. Graduated with honors.",
+    accent: "border-t-secondary shadow-[0_-5px_15px_-5px_rgba(167,139,250,0.4)]"
   },
   {
     degree: "B.Sc. in Software Engineering",
     institution: "MIT",
     period: "2013 - 2017",
     description: "Foundational studies in algorithms, data structures, and system design.",
+    accent: "border-t-secondary shadow-[0_-5px_15px_-5px_rgba(167,139,250,0.4)]"
   },
 ];
 
 export function Experience() {
   return (
-    <section id="experience" className="py-24">
+    <section id="experience" className="py-32">
       <div className="max-w-7xl mx-auto px-6">
-        <div className="text-center space-y-4 mb-16">
-          <h2 className="text-4xl font-bold">
-            My <span className="text-primary">Journey</span>
-          </h2>
-          <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-            A chronological overview of my professional experience and academic achievements.
-          </p>
+        <div className="text-center mb-24 space-y-4">
+          <h2 className="text-5xl font-bold text-gradient-cyan-violet">My Journey</h2>
+          <p className="text-white/60 text-xl font-light">Professional experience & education</p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 relative">
-          {/* Centered Decorative Line/Icon for Desktop */}
-          <div className="hidden lg:block absolute left-1/2 top-0 bottom-0 w-px bg-border -translate-x-1/2">
-            <div className="sticky top-1/2 -translate-y-1/2 bg-background p-2 rounded-full border border-border">
-              <div className="h-4 w-4 bg-primary rounded-full animate-ping"></div>
-            </div>
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 relative">
+          {/* Centered Icon Decor */}
+          <div className="hidden lg:flex absolute left-1/2 top-0 bottom-0 w-px bg-white/10 -translate-x-1/2 justify-center pt-20">
+             <div className="w-12 h-12 glass rounded-full flex items-center justify-center text-primary text-2xl border-primary/30">✨</div>
           </div>
 
-          {/* Work Experience */}
-          <div className="space-y-8">
-            <div className="flex items-center gap-4 mb-6">
-              <div className="p-3 bg-primary/10 rounded-xl">
-                <Briefcase className="text-primary" />
-              </div>
-              <h3 className="text-2xl font-bold">Work Experience</h3>
+          {/* Work Section */}
+          <div className="space-y-12">
+            <div className="flex items-center gap-4 mb-8">
+              <div className="w-12 h-12 glass rounded-2xl flex items-center justify-center text-primary"><Briefcase size={24}/></div>
+              <h3 className="text-3xl font-bold">Experience</h3>
             </div>
             {workExperience.map((item, idx) => (
               <motion.div
@@ -71,31 +65,25 @@ export function Experience() {
                 initial={{ opacity: 0, x: -30 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
-                transition={{ delay: idx * 0.1 }}
+                className={`glass p-8 space-y-4 border-t-4 hover:bg-white/10 transition-all ${item.accent}`}
               >
-                <Card className="hover:shadow-lg transition-all border-l-4 border-l-primary group">
-                  <CardHeader className="pb-2">
-                    <span className="text-sm font-medium text-primary bg-primary/10 px-3 py-1 rounded-full w-fit mb-2">
-                      {item.period}
-                    </span>
-                    <CardTitle className="text-xl group-hover:text-primary transition-colors">{item.title}</CardTitle>
-                    <p className="text-md font-semibold text-muted-foreground">{item.company}</p>
-                  </CardHeader>
-                  <CardContent>
-                    <p className="text-muted-foreground leading-relaxed">{item.description}</p>
-                  </CardContent>
-                </Card>
+                <div className="flex justify-between items-start">
+                  <div>
+                    <h4 className="text-2xl font-bold text-white">{item.title}</h4>
+                    <p className="text-primary font-semibold uppercase tracking-widest text-xs mt-1">{item.company}</p>
+                  </div>
+                  <span className="text-xs font-bold text-white/40 glass px-3 py-1 rounded-full uppercase">{item.period}</span>
+                </div>
+                <p className="text-white/60 leading-relaxed font-light">{item.description}</p>
               </motion.div>
             ))}
           </div>
 
-          {/* Education */}
-          <div className="space-y-8">
-            <div className="flex items-center gap-4 mb-6">
-              <div className="p-3 bg-accent/10 rounded-xl">
-                <GraduationCap className="text-accent" />
-              </div>
-              <h3 className="text-2xl font-bold">Education</h3>
+          {/* Education Section */}
+          <div className="space-y-12">
+            <div className="flex items-center gap-4 mb-8 lg:justify-end">
+              <h3 className="text-3xl font-bold">Education</h3>
+              <div className="w-12 h-12 glass rounded-2xl flex items-center justify-center text-secondary"><GraduationCap size={24}/></div>
             </div>
             {education.map((item, idx) => (
               <motion.div
@@ -103,20 +91,16 @@ export function Experience() {
                 initial={{ opacity: 0, x: 30 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
-                transition={{ delay: idx * 0.1 }}
+                className={`glass p-8 space-y-4 border-t-4 hover:bg-white/10 transition-all ${item.accent}`}
               >
-                <Card className="hover:shadow-lg transition-all border-l-4 border-l-accent group">
-                  <CardHeader className="pb-2">
-                    <span className="text-sm font-medium text-accent bg-accent/10 px-3 py-1 rounded-full w-fit mb-2">
-                      {item.period}
-                    </span>
-                    <CardTitle className="text-xl group-hover:text-accent transition-colors">{item.degree}</CardTitle>
-                    <p className="text-md font-semibold text-muted-foreground">{item.institution}</p>
-                  </CardHeader>
-                  <CardContent>
-                    <p className="text-muted-foreground leading-relaxed">{item.description}</p>
-                  </CardContent>
-                </Card>
+                <div className="flex justify-between items-start">
+                  <span className="text-xs font-bold text-white/40 glass px-3 py-1 rounded-full uppercase">{item.period}</span>
+                  <div className="text-right">
+                    <h4 className="text-2xl font-bold text-white">{item.degree}</h4>
+                    <p className="text-secondary font-semibold uppercase tracking-widest text-xs mt-1">{item.institution}</p>
+                  </div>
+                </div>
+                <p className="text-white/60 leading-relaxed font-light text-right">{item.description}</p>
               </motion.div>
             ))}
           </div>

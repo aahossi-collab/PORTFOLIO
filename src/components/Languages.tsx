@@ -1,30 +1,25 @@
-
 "use client";
 
 import React from "react";
 import { motion } from "framer-motion";
 
 const languages = [
-  { name: "English", level: "Native", percent: 95, flag: "🇬🇧", color: "hsl(var(--primary))" },
-  { name: "Spanish", level: "Fluent", percent: 75, flag: "🇪🇸", color: "hsl(var(--accent))" },
-  { name: "German", level: "Intermediate", percent: 45, flag: "🇩🇪", color: "#6366f1" },
-  { name: "French", level: "Beginner", percent: 30, flag: "🇫🇷", color: "#f43f5e" },
+  { name: "English", level: "Native", percent: 95, flag: "🇬🇧", color: "#00F5FF" },
+  { name: "Spanish", level: "Fluent", percent: 75, flag: "🇪🇸", color: "#A78BFA" },
+  { name: "German", level: "Intermediate", percent: 45, flag: "🇩🇪", color: "#F472B6" },
+  { name: "French", level: "Beginner", percent: 30, flag: "🇫🇷", color: "#FBBF24" },
 ];
 
 export function Languages() {
   return (
-    <section id="languages" className="py-24 bg-primary/5">
+    <section id="languages" className="py-32">
       <div className="max-w-7xl mx-auto px-6">
-        <div className="text-center mb-16 space-y-4">
-          <h2 className="text-4xl font-bold">
-            Languages I <span className="text-primary">Speak</span>
-          </h2>
-          <p className="text-muted-foreground max-w-xl mx-auto">
-            Communication is key. Here are the languages I use to connect with people around the globe.
-          </p>
+        <div className="text-center mb-20 space-y-4">
+          <h2 className="text-5xl font-bold text-gradient-cyan-violet">Languages</h2>
+          <p className="text-white/60 text-xl font-light">Communication matters</p>
         </div>
 
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-12">
           {languages.map((lang, idx) => (
             <motion.div
               key={lang.name}
@@ -32,41 +27,41 @@ export function Languages() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: idx * 0.1 }}
-              className="flex flex-col items-center space-y-6"
+              className="flex flex-col items-center group"
             >
-              <div className="relative w-32 h-32 flex items-center justify-center">
+              <div className="relative w-40 h-40 flex items-center justify-center">
                 <svg className="w-full h-full transform -rotate-90">
                   <circle
-                    cx="64"
-                    cy="64"
-                    r="58"
+                    cx="80"
+                    cy="80"
+                    r="70"
                     fill="none"
-                    stroke="currentColor"
-                    strokeWidth="8"
-                    className="text-muted/20"
+                    stroke="rgba(255,255,255,0.05)"
+                    strokeWidth="10"
                   />
                   <motion.circle
-                    cx="64"
-                    cy="64"
-                    r="58"
+                    cx="80"
+                    cy="80"
+                    r="70"
                     fill="none"
                     stroke={lang.color}
-                    strokeWidth="8"
-                    strokeDasharray={364.42}
-                    initial={{ strokeDashoffset: 364.42 }}
-                    whileInView={{ strokeDashoffset: 364.42 - (364.42 * lang.percent) / 100 }}
+                    strokeWidth="10"
+                    strokeDasharray={439.8}
+                    initial={{ strokeDashoffset: 439.8 }}
+                    whileInView={{ strokeDashoffset: 439.8 - (439.8 * lang.percent) / 100 }}
                     viewport={{ once: true }}
-                    transition={{ duration: 1.5, ease: "easeOut" }}
+                    transition={{ duration: 2, ease: "easeOut" }}
+                    style={{ filter: `drop-shadow(0 0 8px ${lang.color})` }}
                   />
                 </svg>
-                <div className="absolute flex flex-col items-center justify-center">
-                  <span className="text-4xl">{lang.flag}</span>
+                <div className="absolute flex flex-col items-center justify-center glass w-24 h-24 rounded-full border-white/20">
+                  <span className="text-4xl mb-1">{lang.flag}</span>
                   <span className="text-lg font-bold">{lang.percent}%</span>
                 </div>
               </div>
-              <div className="text-center">
-                <h4 className="text-xl font-bold">{lang.name}</h4>
-                <p className="text-sm text-muted-foreground font-medium uppercase tracking-widest">{lang.level}</p>
+              <div className="text-center mt-6 space-y-1">
+                <h4 className="text-2xl font-bold text-white">{lang.name}</h4>
+                <p className="text-xs font-bold text-white/40 uppercase tracking-[0.2em]">{lang.level}</p>
               </div>
             </motion.div>
           ))}

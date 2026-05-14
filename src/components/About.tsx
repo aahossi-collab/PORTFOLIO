@@ -1,27 +1,47 @@
-
 "use client";
 
 import React from "react";
-import { motion } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
 import Image from "next/image";
 import { PlaceHolderImages } from "@/lib/placeholder-images";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent } from "@/components/ui/card";
-import { Briefcase, Trophy, Users } from "lucide-react";
 
 const stats = [
-  { label: "Years Experience", value: "5+", icon: Briefcase },
-  { label: "Projects Done", value: "40+", icon: Trophy },
-  { label: "Happy Clients", value: "25+", icon: Users },
+  { label: "Years Experience", value: 5, suffix: "+", color: "text-primary shadow-primary/20" },
+  { label: "Projects Done", value: 40, suffix: "+", color: "text-secondary shadow-secondary/20" },
+  { label: "Happy Clients", value: 25, suffix: "+", color: "text-accent shadow-accent/20" },
 ];
+
+function Counter({ value, suffix }: { value: number; suffix: string }) {
+  const [count, setCount] = React.useState(0);
+  
+  React.useEffect(() => {
+    let start = 0;
+    const end = value;
+    const duration = 2000;
+    let timer = setInterval(() => {
+      start += 1;
+      setCount(start);
+      if (start === end) clearInterval(timer);
+    }, duration / end);
+    return () => clearInterval(timer);
+  }, [value]);
+
+  return <span>{count}{suffix}</span>;
+}
 
 export function About() {
   const aboutAvatar = PlaceHolderImages.find((img) => img.id === "about-avatar")!;
 
   return (
-    <section id="about" className="py-24 bg-background/50">
+    <section id="about" className="py-32 relative">
       <div className="max-w-7xl mx-auto px-6">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+        <div className="text-center mb-20 space-y-4">
+          <h2 className="text-5xl lg:text-7xl font-bold text-gradient-cyan-violet">About Me</h2>
+          <div className="h-1.5 w-24 bg-gradient-to-r from-primary to-secondary mx-auto rounded-full" />
+        </div>
+
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-24 items-center">
           {/* Image Side */}
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
@@ -29,16 +49,20 @@ export function About() {
             viewport={{ once: true }}
             className="relative"
           >
-            <div className="aspect-square relative rounded-[40px] overflow-hidden border-8 border-white dark:border-slate-800 shadow-2xl rotate-3">
-              <Image 
-                src={aboutAvatar.imageUrl} 
-                alt="About Avatar" 
-                fill 
-                className="object-cover" 
-                data-ai-hint={aboutAvatar.imageHint}
-              />
+            <div className="aspect-[4/5] relative rounded-[60px] glass overflow-hidden p-4 rotate-3 hover:rotate-0 transition-transform duration-700">
+              <div className="w-full h-full rounded-[45px] overflow-hidden relative border-2 border-white/20">
+                <Image 
+                  src={aboutAvatar.imageUrl} 
+                  alt="About Avatar" 
+                  fill 
+                  className="object-cover" 
+                  data-ai-hint={aboutAvatar.imageHint}
+                />
+              </div>
+              <div className="absolute inset-0 bg-gradient-to-t from-[#0f0c29]/80 to-transparent pointer-events-none" />
             </div>
-            <div className="absolute -bottom-8 -left-8 w-40 h-40 bg-accent rounded-full -z-10 blur-2xl opacity-40"></div>
+            {/* Neon dotted border decoration */}
+            <div className="absolute -inset-4 border-2 border-dashed border-primary/30 rounded-[70px] -z-10 animate-pulse" />
           </motion.div>
 
           {/* Text Side */}
@@ -46,35 +70,34 @@ export function About() {
             initial={{ opacity: 0, x: 50 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            className="space-y-8"
+            className="space-y-10"
           >
-            <div className="space-y-4">
-              <h3 className="text-primary font-bold text-lg">ABOUT ME</h3>
-              <h2 className="text-4xl font-bold leading-tight">
+            <div className="space-y-6">
+              <h3 className="text-3xl font-bold text-white leading-tight">
                 Crafting digital experiences with <span className="text-primary italic underline underline-offset-8">Passion</span> and Code
-              </h2>
-              <p className="text-lg text-muted-foreground leading-relaxed">
+              </h3>
+              <p className="text-xl text-white/60 leading-relaxed font-light">
                 [Your Name] is a dedicated developer based in [Location]. With a deep background in modern web technologies, I focus on creating performant, beautiful, and intuitive products that solve real-world problems.
               </p>
-              <p className="text-lg text-muted-foreground leading-relaxed">
+              <p className="text-xl text-white/60 leading-relaxed font-light">
                 I believe that code is an art form, and every pixel matters. My goal is to build software that not only works but inspires.
               </p>
             </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
               {stats.map((stat, idx) => (
-                <Card key={idx} className="border-none shadow-md bg-white dark:bg-slate-800 hover:scale-105 transition-transform">
-                  <CardContent className="p-6 text-center space-y-2">
-                    <stat.icon className="h-8 w-8 text-primary mx-auto" />
-                    <h4 className="text-3xl font-bold">{stat.value}</h4>
-                    <p className="text-sm text-muted-foreground">{stat.label}</p>
-                  </CardContent>
-                </Card>
+                <div key={idx} className="glass p-6 text-center space-y-2 hover:translate-y-[-5px] transition-all group">
+                  <h4 className={`text-4xl font-bold ${stat.color} group-hover:scale-110 transition-transform`}>
+                    <Counter value={stat.value} suffix={stat.suffix} />
+                  </h4>
+                  <p className="text-xs font-bold text-white/40 uppercase tracking-widest">{stat.label}</p>
+                </div>
               ))}
             </div>
 
-            <Button size="lg" className="rounded-full bg-primary hover:bg-primary/90 text-white px-10 h-14 text-lg">
-              Hire Me Now
+            <Button className="w-full sm:w-auto px-12 h-16 rounded-2xl glass border-primary/50 text-xl font-bold relative overflow-hidden group">
+              <span className="relative z-10 group-hover:text-primary transition-colors">Hire Me Now</span>
+              <div className="absolute inset-0 bg-primary/10 translate-y-full group-hover:translate-y-0 transition-transform duration-500" />
             </Button>
           </motion.div>
         </div>
