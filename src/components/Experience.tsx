@@ -1,3 +1,4 @@
+
 "use client";
 
 import React from "react";
@@ -6,34 +7,48 @@ import { Briefcase, GraduationCap } from "lucide-react";
 
 const workExperience = [
   {
-    title: "Senior Full Stack Developer",
-    company: "Tech Giant Inc.",
-    period: "2021 - Present",
-    description: "Led a team of 5 developers in building a scalable SaaS platform. Optimized database queries reducing load time by 40%.",
+    title: "Stagiaire Développeur Front-end",
+    company: "MUXT",
+    period: "Juillet 2024",
+    description: "Apprentissage et mise en œuvre de solutions front-end innovantes.",
     accent: "border-t-primary shadow-[0_-5px_15px_-5px_rgba(0,245,255,0.4)]"
   },
   {
-    title: "Product Engineer",
-    company: "Creative Studio",
-    period: "2019 - 2021",
-    description: "Designed and implemented interactive user interfaces for Fortune 500 clients using React and Framer Motion.",
+    title: "Stagiaire Développeur Front-end",
+    company: "Deep Cleaning",
+    period: "Avril 2023 - Août 2023",
+    description: "Développement et maintenance de composants front-end réutilisables.",
+    accent: "border-t-primary shadow-[0_-5px_15px_-5px_rgba(0,245,255,0.4)]"
+  },
+  {
+    title: "Alternante | HUB d'Innovation",
+    company: "EPITECH",
+    period: "Octobre 2022 - Mars 2023",
+    description: "Réalisation de maquettes Figma pour un site web de vente automobile et développement web avec le framework Vue.js.",
+    accent: "border-t-primary shadow-[0_-5px_15px_-5px_rgba(0,245,255,0.4)]"
+  },
+  {
+    title: "Stagiaire",
+    company: "MTN BÉNIN",
+    period: "Août 2021 - Décembre 2021",
+    description: "Gestion de projets pour le Novembre Numérique. Animation d'ateliers robotique/électronique. Conception de projets robotiques et développement d'un jeu Bomberman avec Unity.",
     accent: "border-t-primary shadow-[0_-5px_15px_-5px_rgba(0,245,255,0.4)]"
   },
 ];
 
 const education = [
   {
-    degree: "M.Sc. in Computer Science",
-    institution: "Stanford University",
-    period: "2017 - 2019",
-    description: "Focused on Distributed Systems and Human-Computer Interaction. Graduated with honors.",
+    degree: "Bachelor en Expertise Informatique",
+    institution: "Epitech Bénin",
+    period: "2020 - 2023",
+    description: "Cycle complet focalisé sur la pratique et l'expertise logicielle.",
     accent: "border-t-secondary shadow-[0_-5px_15px_-5px_rgba(167,139,250,0.4)]"
   },
   {
-    degree: "B.Sc. in Software Engineering",
-    institution: "MIT",
-    period: "2013 - 2017",
-    description: "Foundational studies in algorithms, data structures, and system design.",
+    degree: "Baccalauréat",
+    institution: "Lucie Verone College",
+    period: "2019 - 2020",
+    description: "Série scientifique. Akpakpa Ayélawadjè, Cotonou.",
     accent: "border-t-secondary shadow-[0_-5px_15px_-5px_rgba(167,139,250,0.4)]"
   },
 ];
@@ -43,8 +58,8 @@ export function Experience() {
     <section id="experience" className="py-32">
       <div className="max-w-7xl mx-auto px-6">
         <div className="text-center mb-24 space-y-4">
-          <h2 className="text-5xl font-bold text-gradient-cyan-violet">My Journey</h2>
-          <p className="text-white/60 text-xl font-light">Professional experience & education</p>
+          <h2 className="text-5xl font-bold text-gradient-cyan-violet">Mon Parcours</h2>
+          <p className="text-white/60 text-xl font-light">Expériences professionnelles et formations</p>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 relative">
@@ -57,7 +72,7 @@ export function Experience() {
           <div className="space-y-12">
             <div className="flex items-center gap-4 mb-8">
               <div className="w-12 h-12 glass rounded-2xl flex items-center justify-center text-primary"><Briefcase size={24}/></div>
-              <h3 className="text-3xl font-bold">Experience</h3>
+              <h3 className="text-3xl font-bold">Expériences</h3>
             </div>
             {workExperience.map((item, idx) => (
               <motion.div
@@ -82,7 +97,7 @@ export function Experience() {
           {/* Education Section */}
           <div className="space-y-12">
             <div className="flex items-center gap-4 mb-8 lg:justify-end">
-              <h3 className="text-3xl font-bold">Education</h3>
+              <h3 className="text-3xl font-bold">Formations</h3>
               <div className="w-12 h-12 glass rounded-2xl flex items-center justify-center text-secondary"><GraduationCap size={24}/></div>
             </div>
             {education.map((item, idx) => (

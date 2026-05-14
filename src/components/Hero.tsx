@@ -1,32 +1,37 @@
+
 "use client";
 
 import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 
-const titles = ["Front end Developer", "UI/UX Designer", "Mobile Developer"];
-const techStack = ["React", "Next.js", "TypeScript", "Node.js", "Firebase", "Tailwind", "Figma", "PostgreSQL", "Flutter"];
+const titles = ["Front end Developer", "UX Designer", "IoT Enthusiast", "Expertise Informatique"];
+const techStack = ["React", "Vue.js", "TypeScript", "Flutter", "Arduino", "ESP32", "Figma", "SASS", "Node.js"];
 
-const orbitingIcons = [
+const floatingIcons = [
   {
     name: "React",
     icon: "https://img.icons8.com/color/144/react-native.png",
-    color: "shadow-[0_0_20px_rgba(0,245,255,0.4)]"
+    color: "shadow-[0_0_20px_rgba(0,245,255,0.4)]",
+    initialPos: { top: "15%", left: "10%" }
+  },
+  {
+    name: "Vue",
+    icon: "https://img.icons8.com/color/144/vue-js.png",
+    color: "shadow-[0_0_20px_rgba(66,184,131,0.4)]",
+    initialPos: { top: "20%", left: "80%" }
   },
   {
     name: "TypeScript",
     icon: "https://img.icons8.com/color/144/typescript.png",
-    color: "shadow-[0_0_20px_rgba(167,139,250,0.4)]"
+    color: "shadow-[0_0_20px_rgba(167,139,250,0.4)]",
+    initialPos: { top: "70%", left: "15%" }
   },
   {
-    name: "Node",
-    icon: "https://img.icons8.com/fluency/144/node-js.png",
-    color: "shadow-[0_0_20px_rgba(244,114,182,0.4)]"
-  },
-  {
-    name: "Tailwind",
-    icon: "https://img.icons8.com/color/144/tailwindcss.png",
-    color: "shadow-[0_0_20px_rgba(0,245,255,0.3)]"
+    name: "Figma",
+    icon: "https://img.icons8.com/color/144/figma--v1.png",
+    color: "shadow-[0_0_20px_rgba(244,114,182,0.4)]",
+    initialPos: { top: "75%", left: "75%" }
   }
 ];
 
@@ -68,12 +73,12 @@ export function Hero() {
           className="space-y-8"
         >
           <div className="inline-block px-4 py-1 glass rounded-full text-xs font-bold tracking-[0.2em] text-primary uppercase">
-            Available for Projects
+            Available for Opportunities
           </div>
           <h1 className="text-6xl lg:text-8xl font-bold leading-[0.95] tracking-tight">
             Hi, I'm <br />
             <span className="text-gradient-cyan-violet">
-              [Name]
+              Anaïs AHOSSI
             </span>
           </h1>
           <div className="text-2xl lg:text-4xl font-medium text-white/80 h-[1.2em]">
@@ -81,7 +86,7 @@ export function Hero() {
             <span className="animate-pulse text-primary">|</span>
           </div>
           <p className="text-xl text-white/60 max-w-lg font-light leading-relaxed">
-            I specialize in building high-performance web applications with a focus on immersive user experiences and elegant code architecture.
+            Passionnée par le développement front-end, l'UX design et l'IOT. Je transforme des concepts en expériences numériques immersives.
           </p>
           <div className="flex flex-wrap gap-6 pt-4">
             <Button className="glass rounded-xl px-8 h-14 text-lg font-bold border-primary/50 hover:bg-primary/20 hover:shadow-[0_0_20px_rgba(0,245,255,0.4)] transition-all">
@@ -93,14 +98,13 @@ export function Hero() {
           </div>
         </motion.div>
 
-        {/* Right Side Video & Orbit */}
+        {/* Right Side Video - Large and borderless */}
         <div className="relative flex justify-center items-center">
-          {/* Main Video Circle - Larger and borderless */}
           <motion.div 
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 1 }}
-            className="relative w-[400px] h-[400px] lg:w-[700px] lg:h-[700px] rounded-full overflow-hidden"
+            className="relative w-[350px] h-[350px] lg:w-[600px] lg:h-[600px] rounded-full overflow-hidden"
           >
             <video 
               src="/animation.mp4"
@@ -112,44 +116,32 @@ export function Hero() {
             />
           </motion.div>
 
-          {/* Orbiting Icons - Adjusted orbit radius for larger video */}
-          {orbitingIcons.map((icon, idx) => {
-            const angle = (idx * (360 / orbitingIcons.length));
-            const orbitRadius = 400; // Radius for desktop
-
-            return (
-              <motion.div
-                key={icon.name}
-                className={`absolute glass w-16 h-16 lg:w-24 lg:h-24 rounded-2xl flex items-center justify-center z-20 ${icon.color}`}
-                animate={{
-                  rotate: [0, 360],
-                }}
-                transition={{
-                  duration: 25 + idx * 5,
-                  repeat: Infinity,
-                  ease: "linear",
-                }}
-                style={{
-                  top: "50%",
-                  left: "50%",
-                  marginTop: "-48px",
-                  marginLeft: "-48px",
-                  transformOrigin: `0 ${orbitRadius}px`,
-                }}
-              >
-                <div 
-                  className="relative w-10 h-10 lg:w-14 lg:h-14"
-                  style={{ transform: `rotate(0deg)` }}
-                >
-                  <img 
-                    src={icon.icon} 
-                    alt={icon.name} 
-                    className="w-full h-full object-contain" 
-                  />
-                </div>
-              </motion.div>
-            );
-          })}
+          {/* Floating Icons - Contained in hero */}
+          {floatingIcons.map((icon, idx) => (
+            <motion.div
+              key={icon.name}
+              className={`absolute glass w-16 h-16 lg:w-20 lg:h-20 rounded-2xl flex items-center justify-center z-20 ${icon.color}`}
+              style={{
+                top: icon.initialPos.top,
+                left: icon.initialPos.left,
+              }}
+              animate={{
+                y: [0, -20, 0],
+                x: [0, 10, 0],
+              }}
+              transition={{
+                duration: 4 + idx,
+                repeat: Infinity,
+                ease: "easeInOut",
+              }}
+            >
+              <img 
+                src={icon.icon} 
+                alt={icon.name} 
+                className="w-10 h-10 lg:w-12 lg:h-12 object-contain" 
+              />
+            </motion.div>
+          ))}
         </div>
       </div>
 
