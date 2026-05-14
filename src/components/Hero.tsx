@@ -6,7 +6,7 @@ import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Download } from "lucide-react";
 
-const titles = ["Front end Developer", "Architecture & Sécurité", "Ingénieure Informatique & IA", "Cybersécurité"];
+const titles = ["Développeuse Front-end", "Cybersécurité", "Architecture logicielle", "Ingénieure Informatique & IA"];
 const techStack = ["React", "Vue.js", "TypeScript", "Python", "Wireshark", "Nmap", "Figma", "Node.js"];
 
 const floatingIcons = [
@@ -66,14 +66,12 @@ export function Hero() {
   return (
     <section id="home" className="relative min-h-screen flex flex-col items-center justify-center pt-24 overflow-hidden">
       <div className="max-w-7xl mx-auto w-full px-6 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center z-10">
-        {/* Left Side Content */}
         <motion.div 
           initial={{ opacity: 0, x: -50 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8 }}
           className="space-y-8"
         >
-          
           <h1 className="text-3xl lg:text-5xl font-bold leading-[0.95] tracking-tight">
             Salut, je suis <br />
             <span className="text-gradient-cyan-violet text-6xl lg:text-8xl">
@@ -85,7 +83,7 @@ export function Hero() {
             <span className="animate-pulse text-primary">|</span>
           </div>
           <p className="text-xl text-white/60 max-w-lg font-light leading-relaxed">
-            Passionnée par le développement front-end, la cybersécurité et l'IA. Actuellement en cycle Ingénieur Informatique au Maroc.
+            Passionnée par le développement front-end, la cybersécurité et l'IA. Actuellement en cycle Ingénieur Informatique au Maroc (HESTIM).
           </p>
           <div className="flex flex-wrap gap-6 pt-4">
             <a href="/CV.pdf" target="_blank" rel="noopener noreferrer">
@@ -101,7 +99,6 @@ export function Hero() {
           </div>
         </motion.div>
 
-        {/* Right Side Video - Large and borderless */}
         <div className="relative flex justify-center items-center">
           <motion.div 
             initial={{ opacity: 0, scale: 0.8 }}
@@ -119,7 +116,6 @@ export function Hero() {
             />
           </motion.div>
 
-          {/* Floating Icons - Contained in hero */}
           {floatingIcons.map((icon, idx) => (
             <motion.div
               key={icon.name}
@@ -148,7 +144,6 @@ export function Hero() {
         </div>
       </div>
 
-      {/* Tech Marquee */}
       <div className="w-full mt-24 py-10 glass-pill border-x-0 rounded-none overflow-hidden bg-white/5">
         <div className="animate-marquee whitespace-nowrap flex items-center gap-20">
           {[...techStack, ...techStack].map((tech, idx) => (

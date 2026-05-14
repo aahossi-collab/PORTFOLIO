@@ -1,6 +1,4 @@
 
-import data from './placeholder-images.json';
-
 export type ImagePlaceholder = {
   id: string;
   description: string;
@@ -8,4 +6,41 @@ export type ImagePlaceholder = {
   imageHint: string;
 };
 
-export const PlaceHolderImages: ImagePlaceholder[] = data.placeholderImages;
+export const PlaceHolderImages: ImagePlaceholder[] = [
+  {
+    "id": "hero-avatar",
+    "description": "3D woman character for hero section",
+    "imageUrl": "https://picsum.photos/seed/3d-woman/600/600",
+    "imageHint": "3D woman"
+  },
+  {
+    "id": "about-avatar",
+    "description": "Illustrated style avatar for about section",
+    "imageUrl": "https://picsum.photos/seed/about-me/500/500",
+    "imageHint": "illustrated character"
+  },
+  {
+    "id": "safewoman",
+    "description": "SafeWoman Platform",
+    "imageUrl": "/safewoman.png",
+    "imageHint": "women community"
+  },
+  {
+    "id": "hordmir_perfums",
+    "description": "HORDMIR Luxury Perfums",
+    "imageUrl": "https://hordmir.com/image.jpeg",
+    "imageHint": "luxury perfume"
+  },
+  {
+    "id": "alexandre_moreau_coach",
+    "description": "Alexandre Moreau Coach",
+    "imageUrl": "/sport.png",
+    "imageHint": "fitness coach"
+  },
+  {
+    "id": "chouf_casa",
+    "description": "Chouf Casa - Explore Casablanca",
+    "imageUrl": "/chouf-casa.png",
+    "imageHint": "casablanca exploration"
+  }
+];
