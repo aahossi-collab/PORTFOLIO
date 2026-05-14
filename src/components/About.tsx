@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 
 const stats = [
   { label: "Années d'Expérience", value: 3, suffix: "+", color: "text-primary shadow-primary/20" },
-  { label: "Projets Réalisés", value: 10, suffix: "+", color: "text-secondary shadow-secondary/20" },
+  { label: "Projets Réalisés", value: 5, suffix: "+", color: "text-secondary shadow-secondary/20" },
   { label: "Compétences Techniques", value: 15, suffix: "+", color: "text-accent shadow-accent/20" },
 ];
 

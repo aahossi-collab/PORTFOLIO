@@ -4,6 +4,7 @@
 import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
+import { Download } from "lucide-react";
 
 const titles = ["Front end Developer", "Architecture & Sécurité", "Ingénieure Informatique & IA", "Cybersécurité"];
 const techStack = ["React", "Vue.js", "TypeScript", "Python", "Wireshark", "Nmap", "Figma", "Node.js"];
@@ -87,9 +88,11 @@ export function Hero() {
             Passionnée par le développement front-end, la cybersécurité et l'IA. Actuellement en cycle Ingénieur Informatique au Maroc.
           </p>
           <div className="flex flex-wrap gap-6 pt-4">
-            <Button className="glass rounded-xl px-8 h-14 text-lg font-bold border-primary/50 hover:bg-primary/20 hover:shadow-[0_0_20px_rgba(0,245,255,0.4)] transition-all">
-              Mon CV
-            </Button>
+            <a href="/CV.pdf" target="_blank" rel="noopener noreferrer">
+              <Button className="glass rounded-xl px-8 h-14 text-lg font-bold border-primary/50 hover:bg-primary/20 hover:shadow-[0_0_20px_rgba(0,245,255,0.4)] transition-all flex items-center gap-2">
+                Mon CV <Download size={20} />
+              </Button>
+            </a>
             <a href="#contact">
               <Button variant="outline" className="glass rounded-xl px-8 h-14 text-lg font-bold border-secondary/50 hover:bg-secondary/20 hover:shadow-[0_0_20px_rgba(167,139,250,0.4)] transition-all">
                 Me contacter
