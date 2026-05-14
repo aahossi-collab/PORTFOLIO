@@ -1,3 +1,4 @@
+
 "use client";
 
 import React, { useEffect, useState } from "react";
@@ -77,49 +78,49 @@ export function Hero() {
         </motion.div>
 
         {/* Right Side Video & Orbit */}
-        <motion.div 
-          initial={{ opacity: 0, scale: 0.8 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 1 }}
-          className="relative flex justify-center items-center"
-        >
-          {/* Main Video Circle */}
-          <div className="relative w-80 h-80 lg:w-[450px] lg:h-[450px] rounded-full glass overflow-hidden p-6 border-white/10 border bg-white/5">
-            <div className="w-full h-full rounded-full overflow-hidden relative border border-white/20 bg-slate-900">
-              <video 
-                src="/animation.mp4"
-                autoPlay
-                loop
-                muted
-                playsInline
-                className="w-full h-full object-cover"
-              />
-            </div>
-          </div>
+        <div className="relative flex justify-center items-center">
+          {/* Main Video Circle - Simplified and Enlarged */}
+          <motion.div 
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 1 }}
+            className="relative w-[340px] h-[340px] lg:w-[600px] lg:h-[600px] rounded-full overflow-hidden border border-white/10 bg-slate-900/40 backdrop-blur-md shadow-[0_0_80px_rgba(0,245,255,0.05)]"
+          >
+            <video 
+              src="/animation.mp4"
+              autoPlay
+              loop
+              muted
+              playsInline
+              className="w-full h-full object-cover"
+            />
+          </motion.div>
 
-          {/* Orbiting Icons */}
+          {/* Orbiting Icons - Adjusted for larger center */}
           {orbitingIcons.map((icon, idx) => (
             <motion.div
               key={icon.name}
-              className={`absolute glass w-16 h-16 rounded-2xl flex items-center justify-center text-3xl z-20 ${icon.color}`}
+              className={`absolute glass w-16 h-16 lg:w-20 lg:h-20 rounded-2xl flex items-center justify-center text-3xl z-20 ${icon.color}`}
               animate={{
                 rotate: [0, 360],
               }}
               transition={{
-                duration: 25,
+                duration: 30,
                 repeat: Infinity,
                 ease: "linear",
               }}
               style={{
-                top: "40%",
-                left: "40%",
-                transformOrigin: `${idx === 0 ? "180px" : idx === 1 ? "-180px" : "0 -180px"}`,
+                top: "50%",
+                left: "50%",
+                marginTop: "-40px",
+                marginLeft: "-40px",
+                transformOrigin: `${idx === 0 ? "320px" : idx === 1 ? "-320px" : "0 -320px"}`,
               }}
             >
               <div style={{ transform: `rotate(-${idx * 120}deg)` }}>{icon.icon}</div>
             </motion.div>
           ))}
-        </motion.div>
+        </div>
       </div>
 
       {/* Tech Marquee */}
