@@ -3,8 +3,6 @@
 import React, { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import { PlaceHolderImages } from "@/lib/placeholder-images";
-import Image from "next/image";
 
 const titles = ["Full Stack Developer", "UI/UX Designer", "Software Architect"];
 const techStack = ["React", "Next.js", "TypeScript", "Node.js", "Firebase", "Tailwind", "Framer Motion", "PostgreSQL", "Prisma"];
@@ -42,8 +40,6 @@ export function Hero() {
     return () => clearTimeout(timeout);
   }, [displayText, isDeleting, index]);
 
-  const heroAvatar = PlaceHolderImages.find((img) => img.id === "hero-avatar")!;
-
   return (
     <section id="home" className="relative min-h-screen flex flex-col items-center justify-center pt-24 overflow-hidden">
       <div className="max-w-7xl mx-auto w-full px-6 grid grid-cols-1 lg:grid-cols-2 gap-20 items-center z-10">
@@ -80,26 +76,29 @@ export function Hero() {
           </div>
         </motion.div>
 
-        {/* Right Side Image & Orbit */}
+        {/* Right Side Video & Orbit */}
         <motion.div 
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 1 }}
           className="relative flex justify-center items-center"
         >
-          {/* Main Avatar Circle */}
-          <div className="relative w-80 h-80 lg:w-[450px] lg:h-[450px] rounded-full p-2 bg-gradient-to-tr from-primary via-secondary to-accent animate-spin-slow">
+          {/* Main Video Circle */}
+          <div className="relative w-80 h-80 lg:w-[450px] lg:h-[450px] rounded-full p-2 bg-gradient-to-tr from-primary via-secondary to-accent">
             <div className="w-full h-full rounded-full glass overflow-hidden relative z-10 p-4">
-              <div className="w-full h-full rounded-full overflow-hidden relative border-2 border-white/20">
-                <Image 
-                  src={heroAvatar.imageUrl} 
-                  alt="Avatar" 
-                  fill 
-                  className="object-cover" 
-                  data-ai-hint={heroAvatar.imageHint}
+              <div className="w-full h-full rounded-full overflow-hidden relative border-2 border-white/20 bg-slate-900">
+                <video 
+                  src="/animation.mp4"
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
+                  className="w-full h-full object-cover"
                 />
               </div>
             </div>
+            {/* Spinning background glow */}
+            <div className="absolute inset-0 rounded-full bg-gradient-to-tr from-primary/20 to-accent/20 blur-3xl -z-10 animate-pulse" />
           </div>
 
           {/* Orbiting Icons */}
