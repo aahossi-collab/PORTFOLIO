@@ -5,8 +5,8 @@ import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 
-const titles = ["Front end Developer", "Ingénieure Informatique & IA", "UX/UI Designer", "Expertise Informatique"];
-const techStack = ["React", "Vue.js", "TypeScript", "Flutter", "Figma", "SASS", "Node.js", "Python"];
+const titles = ["Front end Developer", "Architecture & Sécurité", "Ingénieure Informatique & IA", "Cybersécurité"];
+const techStack = ["React", "Vue.js", "TypeScript", "Python", "Wireshark", "Nmap", "Figma", "Node.js"];
 
 const floatingIcons = [
   {
@@ -16,14 +16,14 @@ const floatingIcons = [
     initialPos: { top: "15%", left: "10%" }
   },
   {
-    name: "Vue",
-    icon: "https://img.icons8.com/color/144/vue-js.png",
-    color: "shadow-[0_0_20px_rgba(66,184,131,0.4)]",
+    name: "Python",
+    icon: "https://img.icons8.com/color/144/python.png",
+    color: "shadow-[0_0_20px_rgba(255,222,89,0.4)]",
     initialPos: { top: "20%", left: "80%" }
   },
   {
-    name: "TypeScript",
-    icon: "https://img.icons8.com/color/144/typescript.png",
+    name: "Shield",
+    icon: "https://img.icons8.com/fluency/144/shield.png",
     color: "shadow-[0_0_20px_rgba(167,139,250,0.4)]",
     initialPos: { top: "70%", left: "15%" }
   },
@@ -84,15 +84,17 @@ export function Hero() {
             <span className="animate-pulse text-primary">|</span>
           </div>
           <p className="text-xl text-white/60 max-w-lg font-light leading-relaxed">
-            Passionnée par le développement front-end, l'UX design et l'IA. Actuellement en cycle Ingénieur Informatique au Maroc.
+            Passionnée par le développement front-end, la cybersécurité et l'IA. Actuellement en cycle Ingénieur Informatique au Maroc.
           </p>
           <div className="flex flex-wrap gap-6 pt-4">
             <Button className="glass rounded-xl px-8 h-14 text-lg font-bold border-primary/50 hover:bg-primary/20 hover:shadow-[0_0_20px_rgba(0,245,255,0.4)] transition-all">
               Mon CV
             </Button>
-            <Button variant="outline" className="glass rounded-xl px-8 h-14 text-lg font-bold border-secondary/50 hover:bg-secondary/20 hover:shadow-[0_0_20px_rgba(167,139,250,0.4)] transition-all">
-              Me contacter
-            </Button>
+            <a href="#contact">
+              <Button variant="outline" className="glass rounded-xl px-8 h-14 text-lg font-bold border-secondary/50 hover:bg-secondary/20 hover:shadow-[0_0_20px_rgba(167,139,250,0.4)] transition-all">
+                Me contacter
+              </Button>
+            </a>
           </div>
         </motion.div>
 
@@ -102,7 +104,7 @@ export function Hero() {
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 1 }}
-            className="relative w-[350px] h-[350px] lg:w-[600px] lg:h-[600px] rounded-full overflow-hidden"
+            className="relative w-[450px] h-[450px] lg:w-[700px] lg:h-[700px] rounded-full overflow-hidden"
           >
             <video 
               src="/animation.mp4"
