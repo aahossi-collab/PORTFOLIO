@@ -9,7 +9,7 @@ import { Button } from "@/components/ui/button";
 
 const stats = [
   { label: "Années d'Expérience", value: 3, suffix: "+", color: "text-primary shadow-primary/20" },
-  { label: "Projets Réalisés", value: 15, suffix: "+", color: "text-secondary shadow-secondary/20" },
+  { label: "Projets Réalisés", value: 5, suffix: "+", color: "text-secondary shadow-secondary/20" },
   { label: "Technologies Maîtrisées", value: 10, suffix: "+", color: "text-accent shadow-accent/20" },
 ];
 
@@ -78,10 +78,10 @@ export function About() {
                 Allier technique et créativité pour des <span className="text-primary italic underline underline-offset-8">interfaces uniques</span>
               </h3>
               <p className="text-xl text-white/60 leading-relaxed font-light">
-                Titulaire d'un bachelor en expertise informatique d'EPITECH Bénin, je suis une développeuse front-end passionnée par l'UX design et l'IOT. 
+                Titulaire d'un bachelor en expertise informatique d'EPITECH Bénin, je suis une développeuse front-end passionnée par l'UX design et la cybersecurité. 
               </p>
               <p className="text-xl text-white/60 leading-relaxed font-light">
-                Mes compétences transversales sont un atout majeur dans la gestion de projets complexes, allant de la robotique à la création d'interfaces web fluides et intuitives. Je suis perpétuellement à la recherche de nouveaux défis technologiques.
+                Mes compétences transversales sont un atout majeur dans la gestion de projets complexes, allant de la securité à la création d'interfaces web fluides et intuitives. Je suis perpétuellement à la recherche de nouveaux défis technologiques.
               </p>
             </div>
 

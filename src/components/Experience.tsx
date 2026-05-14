@@ -7,6 +7,13 @@ import { Briefcase, GraduationCap } from "lucide-react";
 
 const workExperience = [
   {
+    title: "Développeuse Web Full-stack",
+    company: "PERO GROUPE",
+    period: "Janv. 2025 - Sept. 2025",
+    description: "Développement de projets web full-stack pour le ministère du numérique. Application rigoureuse des bonnes pratiques de développement sécurisé.",
+    accent: "border-t-primary shadow-[0_-5px_15px_-5px_rgba(0,245,255,0.4)]"
+  },
+  {
     title: "Stagiaire Développeur Front-end",
     company: "MUXT",
     period: "Juillet 2024",
@@ -83,13 +90,13 @@ export function Experience() {
                 className={`glass p-8 space-y-4 border-t-4 hover:bg-white/10 transition-all ${item.accent}`}
               >
                 <div className="flex justify-between items-start">
-                  <div>
-                    <h4 className="text-2xl font-bold text-white">{item.title}</h4>
-                    <p className="text-primary font-semibold uppercase tracking-widest text-xs mt-1">{item.company}</p>
+                  <div className="max-w-[70%]">
+                    <h4 className="text-2xl font-bold text-white leading-tight">{item.title}</h4>
+                    <p className="text-primary font-semibold uppercase tracking-widest text-xs mt-2">{item.company}</p>
                   </div>
-                  <span className="text-xs font-bold text-white/40 glass px-3 py-1 rounded-full uppercase">{item.period}</span>
+                  <span className="text-[10px] font-bold text-white/40 glass px-3 py-1 rounded-full uppercase whitespace-nowrap">{item.period}</span>
                 </div>
-                <p className="text-white/60 leading-relaxed font-light">{item.description}</p>
+                <p className="text-white/60 leading-relaxed font-light text-sm">{item.description}</p>
               </motion.div>
             ))}
           </div>
@@ -109,13 +116,13 @@ export function Experience() {
                 className={`glass p-8 space-y-4 border-t-4 hover:bg-white/10 transition-all ${item.accent}`}
               >
                 <div className="flex justify-between items-start">
-                  <span className="text-xs font-bold text-white/40 glass px-3 py-1 rounded-full uppercase">{item.period}</span>
-                  <div className="text-right">
-                    <h4 className="text-2xl font-bold text-white">{item.degree}</h4>
-                    <p className="text-secondary font-semibold uppercase tracking-widest text-xs mt-1">{item.institution}</p>
+                  <span className="text-[10px] font-bold text-white/40 glass px-3 py-1 rounded-full uppercase whitespace-nowrap">{item.period}</span>
+                  <div className="text-right max-w-[70%]">
+                    <h4 className="text-2xl font-bold text-white leading-tight">{item.degree}</h4>
+                    <p className="text-secondary font-semibold uppercase tracking-widest text-xs mt-2">{item.institution}</p>
                   </div>
                 </div>
-                <p className="text-white/60 leading-relaxed font-light text-right">{item.description}</p>
+                <p className="text-white/60 leading-relaxed font-light text-right text-sm">{item.description}</p>
               </motion.div>
             ))}
           </div>

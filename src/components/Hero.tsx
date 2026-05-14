@@ -5,8 +5,8 @@ import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 
-const titles = ["Front end Developer", "UX Designer", "IoT Enthusiast", "Expertise Informatique"];
-const techStack = ["React", "Vue.js", "TypeScript", "Flutter", "Arduino", "ESP32", "Figma", "SASS", "Node.js"];
+const titles = ["Front end Developer", "UX/UI Designer", "Cybersecurity Enthusiast", "Expertise Informatique"];
+const techStack = ["React", "Vue.js", "TypeScript", "Flutter", "Figma", "SASS", "Node.js"];
 
 const floatingIcons = [
   {
@@ -72,12 +72,10 @@ export function Hero() {
           transition={{ duration: 0.8 }}
           className="space-y-8"
         >
-          <div className="inline-block px-4 py-1 glass rounded-full text-xs font-bold tracking-[0.2em] text-primary uppercase">
-            Available for Opportunities
-          </div>
-          <h1 className="text-6xl lg:text-8xl font-bold leading-[0.95] tracking-tight">
+          
+          <h1 className="text-3xl lg:text-5xl font-bold leading-[0.95] tracking-tight">
             Hi, I'm <br />
-            <span className="text-gradient-cyan-violet">
+            <span className="text-gradient-cyan-violet text-6xl lg:text-8xl">
               Anaïs AHOSSI
             </span>
           </h1>
@@ -86,7 +84,7 @@ export function Hero() {
             <span className="animate-pulse text-primary">|</span>
           </div>
           <p className="text-xl text-white/60 max-w-lg font-light leading-relaxed">
-            Passionnée par le développement front-end, l'UX design et l'IOT. Je transforme des concepts en expériences numériques immersives.
+            Passionnée par le développement front-end, l'UX design et la cybersecurité. Je transforme des concepts en expériences numériques immersives.
           </p>
           <div className="flex flex-wrap gap-6 pt-4">
             <Button className="glass rounded-xl px-8 h-14 text-lg font-bold border-primary/50 hover:bg-primary/20 hover:shadow-[0_0_20px_rgba(0,245,255,0.4)] transition-all">
