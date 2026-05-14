@@ -22,7 +22,7 @@ export const PlaceHolderImages: ImagePlaceholder[] = [
   {
     "id": "safewoman",
     "description": "SafeWoman Platform",
-    "imageUrl": "/safewoman.png",
+    "imageUrl": "/safewoman1.png",
     "imageHint": "women community"
   },
   {
@@ -34,13 +34,13 @@ export const PlaceHolderImages: ImagePlaceholder[] = [
   {
     "id": "alexandre_moreau_coach",
     "description": "Alexandre Moreau Coach",
-    "imageUrl": "/sport.png",
+    "imageUrl": "/sport.PNG",
     "imageHint": "fitness coach"
   },
   {
     "id": "chouf_casa",
     "description": "Chouf Casa - Explore Casablanca",
-    "imageUrl": "/chouf-casa.png",
+    "imageUrl": "/chouf-casa.PNG",
     "imageHint": "casablanca exploration"
   }
 ];

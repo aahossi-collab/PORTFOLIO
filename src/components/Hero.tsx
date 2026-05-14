@@ -86,7 +86,7 @@ export function Hero() {
             Passionnée par le développement front-end, la cybersécurité et l'IA. Actuellement en cycle Ingénieur Informatique à HESTIM.
           </p>
           <div className="flex flex-wrap gap-6 pt-4">
-            <a href="/CV.pdf" target="_blank" rel="noopener noreferrer">
+            <a href="/Ana_CV.pdf" target="_blank" rel="noopener noreferrer">
               <Button className="glass rounded-xl px-8 h-14 text-lg font-bold border-primary/50 hover:bg-primary/20 hover:shadow-[0_0_20px_rgba(0,245,255,0.4)] transition-all flex items-center gap-2">
                 Mon CV <Download size={20} />
               </Button>
