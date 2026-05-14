@@ -83,7 +83,7 @@ export function Hero() {
             <span className="animate-pulse text-primary">|</span>
           </div>
           <p className="text-xl text-white/60 max-w-lg font-light leading-relaxed">
-            Passionnée par le développement front-end, la cybersécurité et l'IA. Actuellement en cycle Ingénieur Informatique au Maroc (HESTIM).
+            Passionnée par le développement front-end, la cybersécurité et l'IA. Actuellement en cycle Ingénieur Informatique à HESTIM.
           </p>
           <div className="flex flex-wrap gap-6 pt-4">
             <a href="/CV.pdf" target="_blank" rel="noopener noreferrer">

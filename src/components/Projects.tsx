@@ -59,7 +59,7 @@ export function Projects() {
           </div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-10">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
           {projects.map((project, idx) => {
             const img = PlaceHolderImages.find((p) => p.id === project.id);
             if (!img) return null;
