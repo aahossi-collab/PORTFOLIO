@@ -6,7 +6,7 @@ import { motion } from "framer-motion";
 
 const languages = [
   { name: "Français", level: "Langue Maternelle", percent: 100, flag: "🇫🇷", color: "#00F5FF" },
-  { name: "Anglais", level: "Usage Professionnel", percent: 80, flag: "🇬🇧", color: "#A78BFA" },
+  { name: "Anglais", level: "Usage Professionnel", percent: 70, flag: "🇺🇸", color: "#A78BFA" },
 ];
 
 export function Languages() {
