@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 
 const titles = ["Full Stack Developer", "UI/UX Designer", "Software Architect"];
@@ -84,21 +84,17 @@ export function Hero() {
           className="relative flex justify-center items-center"
         >
           {/* Main Video Circle */}
-          <div className="relative w-80 h-80 lg:w-[450px] lg:h-[450px] rounded-full p-2 bg-gradient-to-tr from-primary via-secondary to-accent">
-            <div className="w-full h-full rounded-full glass overflow-hidden relative z-10 p-4">
-              <div className="w-full h-full rounded-full overflow-hidden relative border-2 border-white/20 bg-slate-900">
-                <video 
-                  src="/animation.mp4"
-                  autoPlay
-                  loop
-                  muted
-                  playsInline
-                  className="w-full h-full object-cover"
-                />
-              </div>
+          <div className="relative w-80 h-80 lg:w-[450px] lg:h-[450px] rounded-full glass overflow-hidden p-6 border-white/10 border bg-white/5">
+            <div className="w-full h-full rounded-full overflow-hidden relative border border-white/20 bg-slate-900">
+              <video 
+                src="/animation.mp4"
+                autoPlay
+                loop
+                muted
+                playsInline
+                className="w-full h-full object-cover"
+              />
             </div>
-            {/* Spinning background glow */}
-            <div className="absolute inset-0 rounded-full bg-gradient-to-tr from-primary/20 to-accent/20 blur-3xl -z-10 animate-pulse" />
           </div>
 
           {/* Orbiting Icons */}
