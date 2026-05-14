@@ -5,8 +5,8 @@ import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 
-const titles = ["Front end Developer", "UX/UI Designer", "Cybersecurity Enthusiast", "Expertise Informatique"];
-const techStack = ["React", "Vue.js", "TypeScript", "Flutter", "Figma", "SASS", "Node.js"];
+const titles = ["Front end Developer", "Ingénieure Informatique & IA", "UX/UI Designer", "Expertise Informatique"];
+const techStack = ["React", "Vue.js", "TypeScript", "Flutter", "Figma", "SASS", "Node.js", "Python"];
 
 const floatingIcons = [
   {
@@ -74,7 +74,7 @@ export function Hero() {
         >
           
           <h1 className="text-3xl lg:text-5xl font-bold leading-[0.95] tracking-tight">
-            Hi, I'm <br />
+            Salut, je suis <br />
             <span className="text-gradient-cyan-violet text-6xl lg:text-8xl">
               Anaïs AHOSSI
             </span>
@@ -84,14 +84,14 @@ export function Hero() {
             <span className="animate-pulse text-primary">|</span>
           </div>
           <p className="text-xl text-white/60 max-w-lg font-light leading-relaxed">
-            Passionnée par le développement front-end, l'UX design et la cybersecurité. Je transforme des concepts en expériences numériques immersives.
+            Passionnée par le développement front-end, l'UX design et l'IA. Actuellement en cycle Ingénieur Informatique au Maroc.
           </p>
           <div className="flex flex-wrap gap-6 pt-4">
             <Button className="glass rounded-xl px-8 h-14 text-lg font-bold border-primary/50 hover:bg-primary/20 hover:shadow-[0_0_20px_rgba(0,245,255,0.4)] transition-all">
-              Resume
+              Mon CV
             </Button>
             <Button variant="outline" className="glass rounded-xl px-8 h-14 text-lg font-bold border-secondary/50 hover:bg-secondary/20 hover:shadow-[0_0_20px_rgba(167,139,250,0.4)] transition-all">
-              Contact Me
+              Me contacter
             </Button>
           </div>
         </motion.div>

@@ -45,6 +45,13 @@ const workExperience = [
 
 const education = [
   {
+    degree: "Cycle Ingénieur d’état en Ingénierie Informatique et IA",
+    institution: "HESTIM – Maroc",
+    period: "2025 - 2027",
+    description: "Spécialisation en Ingénierie logicielle, Systèmes informatiques, et Réseaux.",
+    accent: "border-t-secondary shadow-[0_-5px_15px_-5px_rgba(167,139,250,0.4)]"
+  },
+  {
     degree: "Bachelor en Expertise Informatique",
     institution: "Epitech Bénin",
     period: "2020 - 2023",

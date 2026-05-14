@@ -78,10 +78,10 @@ export function About() {
                 Allier technique et créativité pour des <span className="text-primary italic underline underline-offset-8">interfaces uniques</span>
               </h3>
               <p className="text-xl text-white/60 leading-relaxed font-light">
-                Titulaire d'un bachelor en expertise informatique d'EPITECH Bénin, je suis une développeuse front-end passionnée par l'UX design et la cybersecurité. 
+                Actuellement en cycle d'Ingénieur d'état en Informatique et IA chez HESTIM Maroc et titulaire d'un bachelor en expertise informatique d'EPITECH Bénin.
               </p>
               <p className="text-xl text-white/60 leading-relaxed font-light">
-                Mes compétences transversales sont un atout majeur dans la gestion de projets complexes, allant de la securité à la création d'interfaces web fluides et intuitives. Je suis perpétuellement à la recherche de nouveaux défis technologiques.
+                Je suis une développeuse front-end passionnée par l'UX design, la cybersecurité et l'intelligence artificielle. Mes compétences transversales me permettent de gérer des projets complexes en alliant sécurité, fluidité et innovation technologique.
               </p>
             </div>
 
