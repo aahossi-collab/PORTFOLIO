@@ -1,14 +1,12 @@
-
 "use client";
 
 import React from "react";
 import { motion } from "framer-motion";
-import { Button } from "@/components/ui/button";
 
 const stats = [
   { label: "Années d'Expérience", value: 3, suffix: "+", color: "text-primary shadow-primary/20" },
-  { label: "Projets Réalisés", value: 5, suffix: "+", color: "text-secondary shadow-secondary/20" },
-  { label: "Technologies Maîtrisées", value: 10, suffix: "+", color: "text-accent shadow-accent/20" },
+  { label: "Projets Réalisés", value: 10, suffix: "+", color: "text-secondary shadow-secondary/20" },
+  { label: "Compétences Techniques", value: 15, suffix: "+", color: "text-accent shadow-accent/20" },
 ];
 
 function Counter({ value, suffix }: { value: number; suffix: string }) {
@@ -20,10 +18,14 @@ function Counter({ value, suffix }: { value: number; suffix: string }) {
     const duration = 2000;
     const step = duration / end;
     let timer = setInterval(() => {
-      start += 1;
-      setCount(start);
-      if (start === end) clearInterval(timer);
-    }, step);
+      start += Math.ceil(end / 100);
+      if (start >= end) {
+        setCount(end);
+        clearInterval(timer);
+      } else {
+        setCount(start);
+      }
+    }, 20);
     return () => clearInterval(timer);
   }, [value]);
 
@@ -72,13 +74,13 @@ export function About() {
           >
             <div className="space-y-6">
               <h3 className="text-3xl font-bold text-white leading-tight">
-                Allier technique et créativité pour des <span className="text-primary italic underline underline-offset-8">interfaces sécurisées</span>
+                Allier technique et créativité pour des <span className="text-primary italic underline underline-offset-8">solutions sécurisées</span>
               </h3>
               <p className="text-xl text-white/60 leading-relaxed font-light">
                 Titulaire d'un bachelor en expertise informatique d'EPITECH Bénin, je suis actuellement en cycle d'Ingénieur d'état en Informatique et IA chez HESTIM Maroc (2025-2027).
               </p>
               <p className="text-xl text-white/60 leading-relaxed font-light">
-                Passionnée par le développement front-end, l'UX design et la cybersécurité, j'allie mes compétences techniques et transversales pour créer des solutions innovantes et robustes. Mon parcours m'oriente désormais vers la protection des infrastructures et la sécurité logicielle.
+                Passionnée par le développement front-end, l'UX design et la cybersécurité, j'allie mes compétences techniques pour créer des interfaces robustes et innovantes.
               </p>
             </div>
 
@@ -92,13 +94,6 @@ export function About() {
                 </div>
               ))}
             </div>
-
-            <a href="#contact">
-              <Button className="w-full sm:w-auto px-12 h-16 rounded-2xl glass border-primary/50 text-xl font-bold relative overflow-hidden group">
-                <span className="relative z-10 group-hover:text-primary transition-colors">Travaillons ensemble</span>
-                <div className="absolute inset-0 bg-primary/10 translate-y-full group-hover:translate-y-0 transition-transform duration-500" />
-              </Button>
-            </a>
           </motion.div>
         </div>
       </div>
