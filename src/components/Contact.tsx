@@ -46,8 +46,8 @@ export function Contact() {
              <div className="space-y-6">
                {[
                  { icon: Mail, label: "Email", val: "giftyanais.ahossi@gmail.com", color: "text-primary bg-primary/10" },
-                 { icon: Phone, label: "Téléphone", val: "+229 97 97 02 14", color: "text-secondary bg-secondary/10" },
-                 { icon: MapPin, label: "Localisation", val: "Cotonou, Bénin", color: "text-accent bg-accent/10" },
+                 { icon: Phone, label: "Téléphone", val: "+212 7 79 54 56 24 / +229 97 97 02 14", color: "text-secondary bg-secondary/10" },
+                 { icon: MapPin, label: "Localisation", val: "Casablanca, Maroc / Cotonou, Bénin", color: "text-accent bg-accent/10" },
                ].map((item, i) => (
                  <div key={i} className="glass p-6 flex items-center gap-6 group hover:border-white/40 transition-all">
                     <div className={`w-14 h-14 rounded-2xl flex items-center justify-center ${item.color} group-hover:scale-110 transition-transform`}>
