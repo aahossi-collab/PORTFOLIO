@@ -2,9 +2,9 @@
   "placeholderImages": [
     {
       "id": "hero-avatar",
-      "description": "Professional avatar for hero section",
-      "imageUrl": "https://picsum.photos/seed/portfolio-avatar/600/600",
-      "imageHint": "professional avatar"
+      "description": "3D woman character for hero section",
+      "imageUrl": "https://picsum.photos/seed/3d-woman/600/600",
+      "imageHint": "3D woman"
     },
     {
       "id": "about-avatar",
