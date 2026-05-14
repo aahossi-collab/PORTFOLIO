@@ -13,28 +13,22 @@
       "imageHint": "illustrated character"
     },
     {
-      "id": "project-1",
-      "description": "E-commerce dashboard project",
-      "imageUrl": "https://picsum.photos/seed/project-1/800/600",
-      "imageHint": "software dashboard"
+      "id": "safewoman",
+      "description": "SafeWoman Platform",
+      "imageUrl": "https://images.unsplash.com/photo-1759581181761-9550da882344?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxjYWxtJTIwYWJzdHJhY3R8ZW58MHx8fHwxNzY5NTI5NzEyfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "women community"
     },
     {
-      "id": "project-2",
-      "description": "SaaS Landing Page",
-      "imageUrl": "https://picsum.photos/seed/project-2/800/600",
-      "imageHint": "website screenshot"
+      "id": "hordmir_perfums",
+      "description": "HORDMIR Luxury Perfums",
+      "imageUrl": "https://hordmir.com/image.jpeg",
+      "imageHint": "luxury perfume"
     },
     {
-      "id": "project-3",
-      "description": "Mobile App UI",
-      "imageUrl": "https://picsum.photos/seed/project-3/800/600",
-      "imageHint": "mobile interface"
-    },
-    {
-      "id": "project-4",
-      "description": "AI Analytics Tool",
-      "imageUrl": "https://picsum.photos/seed/project-4/800/600",
-      "imageHint": "data visualization"
+      "id": "alexandre_moreau_coach",
+      "description": "Alexandre Moreau Coach",
+      "imageUrl": "https://site-web-sport.vercel.app/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fhero.27627447.jpg&w=3840&q=75",
+      "imageHint": "fitness coach"
     }
   ]
 }

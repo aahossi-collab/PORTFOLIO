@@ -34,6 +34,18 @@ const nextConfig: NextConfig = {
         port: '',
         pathname: '/**',
       },
+      {
+        protocol: 'https',
+        hostname: 'hordmir.com',
+        port: '',
+        pathname: '/**',
+      },
+      {
+        protocol: 'https',
+        hostname: 'site-web-sport.vercel.app',
+        port: '',
+        pathname: '/**',
+      },
     ],
   },
 };
