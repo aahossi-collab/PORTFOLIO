@@ -15,7 +15,7 @@
     {
       "id": "safewoman",
       "description": "SafeWoman Platform",
-      "imageUrl": "https://images.unsplash.com/photo-1759581181761-9550da882344?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxjYWxtJTIwYWJzdHJhY3R8ZW58MHx8fHwxNzY5NTI5NzEyfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "/safewoman.png",
       "imageHint": "women community"
     },
     {
@@ -27,13 +27,13 @@
     {
       "id": "alexandre_moreau_coach",
       "description": "Alexandre Moreau Coach",
-      "imageUrl": "https://site-web-sport.vercel.app/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fhero.27627447.jpg&w=3840&q=75",
+      "imageUrl": "/sport.png",
       "imageHint": "fitness coach"
     },
     {
       "id": "chouf_casa",
       "description": "Chouf Casa - Explore Casablanca",
-      "imageUrl": "https://chouf-casa.vercel.app/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fhero.27627447.jpg&w=3840&q=75",
+      "imageUrl": "/chouf-casa.png",
       "imageHint": "casablanca exploration"
     }
   ]
