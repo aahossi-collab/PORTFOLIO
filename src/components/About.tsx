@@ -3,8 +3,6 @@
 
 import React from "react";
 import { motion } from "framer-motion";
-import Image from "next/image";
-import { PlaceHolderImages } from "@/lib/placeholder-images";
 import { Button } from "@/components/ui/button";
 
 const stats = [
@@ -33,8 +31,6 @@ function Counter({ value, suffix }: { value: number; suffix: string }) {
 }
 
 export function About() {
-  const aboutAvatar = PlaceHolderImages.find((img) => img.id === "about-avatar")!;
-
   return (
     <section id="about" className="py-32 relative">
       <div className="max-w-7xl mx-auto px-6">
@@ -44,7 +40,7 @@ export function About() {
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-24 items-center">
-          {/* Image Side */}
+          {/* Video Side */}
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             whileInView={{ opacity: 1, scale: 1 }}
@@ -53,15 +49,16 @@ export function About() {
           >
             <div className="aspect-[4/5] relative rounded-[60px] glass overflow-hidden p-4 rotate-3 hover:rotate-0 transition-transform duration-700">
               <div className="w-full h-full rounded-[45px] overflow-hidden relative border-2 border-white/20">
-                <Image 
-                  src={aboutAvatar.imageUrl} 
-                  alt="Anaïs Ahossi Avatar" 
-                  fill 
-                  className="object-cover" 
-                  data-ai-hint={aboutAvatar.imageHint}
+                <video 
+                  src="/about.mp4" 
+                  autoPlay 
+                  loop 
+                  muted 
+                  playsInline 
+                  className="w-full h-full object-cover"
                 />
               </div>
-              <div className="absolute inset-0 bg-gradient-to-t from-[#0f0c29]/80 to-transparent pointer-events-none" />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#0f0c29]/40 to-transparent pointer-events-none" />
             </div>
             <div className="absolute -inset-4 border-2 border-dashed border-primary/30 rounded-[70px] -z-10 animate-pulse" />
           </motion.div>
@@ -78,10 +75,10 @@ export function About() {
                 Allier technique et créativité pour des <span className="text-primary italic underline underline-offset-8">interfaces uniques</span>
               </h3>
               <p className="text-xl text-white/60 leading-relaxed font-light">
-                Actuellement en cycle d'Ingénieur d'état en Informatique et IA chez HESTIM Maroc et titulaire d'un bachelor en expertise informatique d'EPITECH Bénin.
+                Titulaire d'un bachelor en expertise informatique d'EPITECH Bénin, je suis actuellement en cycle d'Ingénieur d'état en Informatique et IA chez HESTIM Maroc (2025-2027).
               </p>
               <p className="text-xl text-white/60 leading-relaxed font-light">
-                Je suis une développeuse front-end passionnée par l'UX design, la cybersecurité et l'intelligence artificielle. Mes compétences transversales me permettent de gérer des projets complexes en alliant sécurité, fluidité et innovation technologique.
+                Passionnée par le développement front-end, l'UX design et l'IOT, j'allie mes compétences techniques et transversales pour créer des solutions innovantes. Mon parcours m'a permis d'acquérir une solide expertise en ingénierie logicielle et systèmes.
               </p>
             </div>
 
