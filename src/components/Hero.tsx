@@ -4,14 +4,27 @@
 import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
+import Image from "next/image";
 
-const titles = ["Full Stack Developer", "UI/UX Designer", "Software Architect"];
-const techStack = ["React", "Next.js", "TypeScript", "Node.js", "Firebase", "Tailwind", "Framer Motion", "PostgreSQL", "Prisma"];
+const titles = ["Front end Developer", "UI/UX Designer", "Mobile Developer"];
+const techStack = ["React", "Next.js", "TypeScript", "Node.js", "Firebase", "Tailwind", "Figma", "PostgreSQL", "Flutter"];
 
 const orbitingIcons = [
-  { name: "React", icon: "⚛️", color: "shadow-[0_0_15px_rgba(0,245,255,0.5)]" },
-  { name: "TS", icon: "📘", color: "shadow-[0_0_15px_rgba(167,139,250,0.5)]" },
-  { name: "Node", icon: "🟢", color: "shadow-[0_0_15px_rgba(244,114,182,0.5)]" },
+  {
+    name: "React",
+    icon: "https://img.icons8.com/color/96/react-native.png",
+    color: "shadow-[0_0_15px_rgba(0,245,255,0.5)]"
+  },
+  {
+    name: "TypeScript",
+    icon: "https://img.icons8.com/color/96/typescript.png",
+    color: "shadow-[0_0_15px_rgba(167,139,250,0.5)]"
+  },
+  {
+    name: "Node",
+    icon: "https://img.icons8.com/fluency/96/node-js.png",
+    color: "shadow-[0_0_15px_rgba(244,114,182,0.5)]"
+  },
 ];
 
 export function Hero() {
@@ -79,12 +92,12 @@ export function Hero() {
 
         {/* Right Side Video & Orbit */}
         <div className="relative flex justify-center items-center">
-          {/* Main Video Circle - Simplified and Enlarged */}
+          {/* Main Video Circle */}
           <motion.div 
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 1 }}
-            className="relative w-[340px] h-[340px] lg:w-[600px] lg:h-[600px] rounded-full overflow-hidden border border-white/10 bg-slate-900/40 backdrop-blur-md shadow-[0_0_80px_rgba(0,245,255,0.05)]"
+            className="relative w-[340px] h-[340px] lg:w-[600px] lg:h-[600px] rounded-full overflow-hidden border border-white/10 bg-slate-900/40 backdrop-blur-md"
           >
             <video 
               src="/animation.mp4"
@@ -96,11 +109,11 @@ export function Hero() {
             />
           </motion.div>
 
-          {/* Orbiting Icons - Adjusted for larger center */}
+          {/* Orbiting Icons */}
           {orbitingIcons.map((icon, idx) => (
             <motion.div
               key={icon.name}
-              className={`absolute glass w-16 h-16 lg:w-20 lg:h-20 rounded-2xl flex items-center justify-center text-3xl z-20 ${icon.color}`}
+              className={`absolute glass w-16 h-16 lg:w-20 lg:h-20 rounded-2xl flex items-center justify-center z-20 ${icon.color}`}
               animate={{
                 rotate: [0, 360],
               }}
@@ -114,10 +127,16 @@ export function Hero() {
                 left: "50%",
                 marginTop: "-40px",
                 marginLeft: "-40px",
-                transformOrigin: `${idx === 0 ? "320px" : idx === 1 ? "-320px" : "0 -320px"}`,
+                transformOrigin: `${idx === 0 ? "350px" : idx === 1 ? "-350px" : "0 -350px"}`,
               }}
             >
-              <div style={{ transform: `rotate(-${idx * 120}deg)` }}>{icon.icon}</div>
+              <div style={{ transform: `rotate(-${idx * 120}deg)` }} className="relative w-10 h-10 lg:w-12 lg:h-12">
+                <img 
+                  src={icon.icon} 
+                  alt={icon.name} 
+                  className="w-full h-full object-contain" 
+                />
+              </div>
             </motion.div>
           ))}
         </div>
