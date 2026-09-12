@@ -1,28 +1,30 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
-import { Moon, Sun, Menu, X } from "lucide-react";
+import { Moon, Sun, Menu, X, Globe } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
-
-const navLinks = [
-  { name: "Home", href: "#home" },
-  { name: "About", href: "#about" },
-  { name: "Experience", href: "#experience" },
-  { name: "Languages", href: "#languages" },
-  { name: "Work", href: "#work" },
-  { name: "Contact", href: "#contact" },
-];
+import { useLanguage } from "@/context/LanguageContext";
 
 export function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const { language, setLanguage, t } = useLanguage();
 
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 20);
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  const navLinks = [
+    { name: t("nav_home"), href: "#home" },
+    { name: t("nav_about"), href: "#about" },
+    { name: t("nav_experience"), href: "#experience" },
+    { name: t("nav_languages"), href: "#languages" },
+    { name: t("nav_work"), href: "#work" },
+    { name: t("nav_contact"), href: "#contact" },
+  ];
 
   return (
     <div className="fixed top-6 left-0 right-0 z-50 flex justify-center px-6">
@@ -48,6 +50,18 @@ export function Navbar() {
             </a>
           ))}
           <div className="h-4 w-px bg-white/10" />
+          
+          {/* Language Switcher */}
+          <Button
+            variant="ghost"
+            size="sm"
+            className="text-xs font-bold text-white/70 hover:text-primary flex items-center gap-1.5 px-3 h-8 glass rounded-xl border-white/10"
+            onClick={() => setLanguage(language === "fr" ? "en" : "fr")}
+          >
+            <Globe className="h-3.5 w-3.5 text-primary" />
+            <span className="uppercase">{language === "fr" ? "EN" : "FR"}</span>
+          </Button>
+
           <Button variant="ghost" size="icon" className="rounded-full text-white/60 hover:text-white">
             <Sun className="h-4 w-4" />
           </Button>
@@ -55,6 +69,15 @@ export function Navbar() {
 
         {/* Mobile Toggle */}
         <div className="md:hidden flex items-center space-x-4">
+          <Button
+            variant="ghost"
+            size="sm"
+            className="text-xs font-bold text-white/70 hover:text-primary flex items-center gap-1 px-2 h-8 glass rounded-xl border-white/10"
+            onClick={() => setLanguage(language === "fr" ? "en" : "fr")}
+          >
+            <Globe className="h-3.5 w-3.5 text-primary" />
+            <span className="uppercase">{language === "fr" ? "EN" : "FR"}</span>
+          </Button>
           <Button
             variant="ghost"
             size="icon"

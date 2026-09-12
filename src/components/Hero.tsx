@@ -1,12 +1,11 @@
-
 "use client";
 
 import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Download } from "lucide-react";
+import { useLanguage } from "@/context/LanguageContext";
 
-const titles = ["Développeuse Front-end", "Cybersécurité", "Architecture logicielle", "Ingénieure Informatique & IA"];
 const techStack = ["React", "Vue.js", "TypeScript", "Python", "Wireshark", "Nmap", "Figma", "Node.js"];
 
 const floatingIcons = [
@@ -37,9 +36,14 @@ const floatingIcons = [
 ];
 
 export function Hero() {
+  const { language, t } = useLanguage();
   const [index, setIndex] = useState(0);
   const [displayText, setDisplayText] = useState("");
   const [isDeleting, setIsDeleting] = useState(false);
+
+  const titles = language === "fr" 
+    ? ["Développeuse Front-end", "Cybersécurité", "Architecture logicielle", "Ingénieure Informatique & IA"]
+    : ["Front-end Developer", "Cybersecurity", "Software Architecture", "Computer Science & AI Engineer"];
 
   useEffect(() => {
     const currentTitle = titles[index];
@@ -60,8 +64,8 @@ export function Hero() {
       }
     }, speed);
 
-    return () => clearTimeout(timeout);
-  }, [displayText, isDeleting, index]);
+    return () => setTimeout(timeout);
+  }, [displayText, isDeleting, index, titles]);
 
   return (
     <section id="home" className="relative min-h-screen flex flex-col items-center justify-center pt-24 overflow-hidden">
@@ -73,7 +77,7 @@ export function Hero() {
           className="space-y-8"
         >
           <h1 className="text-3xl lg:text-5xl font-bold leading-[0.95] tracking-tight">
-            Salut, je suis <br />
+            {t("hero_hi")} <br />
             <span className="text-gradient-cyan-violet text-6xl lg:text-8xl">
               Anaïs AHOSSI
             </span>
@@ -83,17 +87,17 @@ export function Hero() {
             <span className="animate-pulse text-primary">|</span>
           </div>
           <p className="text-xl text-white/60 max-w-lg font-light leading-relaxed">
-            Passionnée par le développement front-end, la cybersécurité et l'IA. Actuellement en cycle Ingénieur Informatique à HESTIM.
+            {t("hero_desc")}
           </p>
           <div className="flex flex-wrap gap-6 pt-4">
-            <a href="/Ana_CV.pdf" target="_blank" rel="noopener noreferrer">
+            <a href="/CV.pdf" target="_blank" rel="noopener noreferrer">
               <Button className="glass rounded-xl px-8 h-14 text-lg font-bold border-primary/50 hover:bg-primary/20 hover:shadow-[0_0_20px_rgba(0,245,255,0.4)] transition-all flex items-center gap-2">
-                Mon CV <Download size={20} />
+                {t("hero_cv")} <Download size={20} />
               </Button>
             </a>
             <a href="#contact">
               <Button variant="outline" className="glass rounded-xl px-8 h-14 text-lg font-bold border-secondary/50 hover:bg-secondary/20 hover:shadow-[0_0_20px_rgba(167,139,250,0.4)] transition-all">
-                Me contacter
+                {t("hero_contact")}
               </Button>
             </a>
           </div>
@@ -139,7 +143,7 @@ export function Hero() {
                 alt={icon.name} 
                 className="w-10 h-10 lg:w-12 lg:h-12 object-contain" 
               />
-            </motion.div>
+                </motion.div>
           ))}
         </div>
       </div>

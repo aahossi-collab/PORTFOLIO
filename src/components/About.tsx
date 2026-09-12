@@ -2,12 +2,7 @@
 
 import React from "react";
 import { motion } from "framer-motion";
-
-const stats = [
-  { label: "Années d'Expérience", value: 3, suffix: "+", color: "text-primary shadow-primary/20" },
-  { label: "Projets Réalisés", value: 5, suffix: "+", color: "text-secondary shadow-secondary/20" },
-  { label: "Compétences Techniques", value: 15, suffix: "+", color: "text-accent shadow-accent/20" },
-];
+import { useLanguage } from "@/context/LanguageContext";
 
 function Counter({ value, suffix }: { value: number; suffix: string }) {
   const [count, setCount] = React.useState(0);
@@ -33,11 +28,19 @@ function Counter({ value, suffix }: { value: number; suffix: string }) {
 }
 
 export function About() {
+  const { t } = useLanguage();
+
+  const stats = [
+    { label: t("about_stat_exp"), value: 3, suffix: "+", color: "text-primary shadow-primary/20" },
+    { label: t("about_stat_projects"), value: 5, suffix: "+", color: "text-secondary shadow-secondary/20" },
+    { label: t("about_stat_skills"), value: 15, suffix: "+", color: "text-accent shadow-accent/20" },
+  ];
+
   return (
     <section id="about" className="py-32 relative">
       <div className="max-w-7xl mx-auto px-6">
         <div className="text-center mb-20 space-y-4">
-          <h2 className="text-5xl lg:text-7xl font-bold text-gradient-cyan-violet">À propos de moi</h2>
+          <h2 className="text-5xl lg:text-7xl font-bold text-gradient-cyan-violet">{t("about_title")}</h2>
           <div className="h-1.5 w-24 bg-gradient-to-r from-primary to-secondary mx-auto rounded-full" />
         </div>
 
@@ -74,13 +77,13 @@ export function About() {
           >
             <div className="space-y-6">
               <h3 className="text-3xl font-bold text-white leading-tight">
-                Allier technique et créativité pour des <span className="text-primary italic underline underline-offset-8">solutions sécurisées</span>
+                {t("about_subtitle")}
               </h3>
               <p className="text-xl text-white/60 leading-relaxed font-light">
-                Titulaire d'un bachelor en expertise informatique d'EPITECH Bénin, je suis actuellement en cycle d'Ingénieur d'état en Informatique et IA chez HESTIM Maroc (2025-2027).
+                {t("about_p1")}
               </p>
               <p className="text-xl text-white/60 leading-relaxed font-light">
-                Passionnée par le développement front-end, l'UX design et la cybersécurité, j'allie mes compétences techniques pour créer des interfaces robustes et innovantes.
+                {t("about_p2")}
               </p>
             </div>
 
