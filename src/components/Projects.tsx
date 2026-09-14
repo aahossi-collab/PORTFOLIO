@@ -193,7 +193,7 @@ export function Projects() {
               </div>
               
               <div className="p-8 space-y-6 overflow-y-auto">
-                <div className="space-y-4">
+                <DialogHeader className="space-y-4 text-left">
                   <div className="flex flex-wrap gap-2">
                     {selectedProject.tags.map((tag: string) => (
                       <span key={tag} className="glass px-4 py-1.5 rounded-full text-[10px] font-bold uppercase tracking-widest text-primary border-primary/20">
@@ -201,19 +201,20 @@ export function Projects() {
                       </span>
                     ))}
                   </div>
-                  <h2 className="text-4xl font-bold text-gradient-cyan-violet">{selectedProject.title}</h2>
-                </div>
-                
-                <p className="text-white/70 text-lg leading-relaxed font-light">
-                  {selectedProject.description}
-                </p>
+                  <DialogTitle className="text-4xl font-bold text-gradient-cyan-violet">
+                    {selectedProject.title}
+                  </DialogTitle>
+                  <DialogDescription className="text-white/70 text-lg leading-relaxed font-light">
+                    {selectedProject.description}
+                  </DialogDescription>
+                </DialogHeader>
 
                 {selectedProject.url !== "#" && (
                   <a 
                     href={selectedProject.url} 
                     target="_blank" 
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-3 glass px-8 py-4 rounded-2xl text-primary font-bold uppercase tracking-widest text-sm hover:bg-primary/10 transition-all border-primary/30"
+                    className="inline-flex items-center gap-3 glass px-8 py-4 rounded-2xl text-primary font-bold uppercase tracking-widest text-sm hover:bg-primary/10 transition-all border-primary/30 w-fit"
                   >
                     Visiter le Projet <ExternalLink size={18}/>
                   </a>
@@ -226,4 +227,3 @@ export function Projects() {
     </section>
   );
 }
-
