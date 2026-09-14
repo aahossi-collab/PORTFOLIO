@@ -9,7 +9,7 @@ import { FloatingCircles } from "@/components/FloatingCircles";
 
 export default function Home() {
   return (
-    <main className="relative min-h-screen bg-background text-foreground">
+    <main className="relative min-h-screen bg-background text-foreground overflow-x-hidden w-full">
       <FloatingCircles />
       <Navbar />
       <Hero />
