@@ -61,10 +61,6 @@ export function Navbar() {
             <Globe className="h-3.5 w-3.5 text-primary" />
             <span className="uppercase">{language === "fr" ? "FR" : "EN"}</span>
           </Button>
-
-          <Button variant="ghost" size="icon" className="rounded-full text-white/60 hover:text-white">
-            <Sun className="h-4 w-4" />
-          </Button>
         </div>
 
         {/* Mobile Toggle */}
