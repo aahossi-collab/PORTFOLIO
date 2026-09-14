@@ -34,7 +34,7 @@ export const PlaceHolderImages: ImagePlaceholder[] = [
   {
     "id": "chouf_casa",
     "description": "Chouf Casa - Explore Casablanca",
-    "imageUrl": "/chouf-casa.png",
+    "imageUrl": "/chouf-casa.PNG",
     "imageHint": "casablanca exploration"
   },
   {

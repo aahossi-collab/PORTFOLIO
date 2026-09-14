@@ -1,3 +1,4 @@
+
 "use client";
 
 import React, { useEffect, useState } from "react";
@@ -42,8 +43,8 @@ export function Hero() {
   const [isDeleting, setIsDeleting] = useState(false);
 
   const titles = language === "fr" 
-    ? ["Dév. Web & Mobile Sécurisé", "Audit de Sécurité / Pentesting", "Cybersécurité Appliquée", "Ingénieure Informatique & IA"]
-    : ["Secure Web & Mobile Dev", "Security Audit / Pentesting", "Applied Cybersecurity", "Computer Science & AI Engineer"];
+    ? ["Dév. Web & Mobile Sécurisé", "Audit & Pentesting Web/Mobile", "Expertise Cybersécurité"]
+    : ["Secure Web & Mobile Dev", "Web/Mobile Pentesting & Audit", "Cybersecurity Expert"];
 
   useEffect(() => {
     const currentTitle = titles[index];
@@ -94,13 +95,13 @@ export function Hero() {
               asChild
               className="glass rounded-xl px-8 h-14 text-lg font-bold border-primary/50 text-white hover:bg-primary/20 hover:shadow-[0_0_20px_rgba(0,245,255,0.4)] transition-all flex items-center gap-2"
             >
-              <a href="/Ana_CV.pdf" target="_blank" rel="noopener noreferrer">
+              <a href="/CV.pdf" target="_blank" rel="noopener noreferrer">
                 {t("hero_cv")} <Download size={20} />
               </a>
             </Button>
             <Button 
               asChild
-              className="glass rounded-xl px-8 h-14 text-lg font-bold border-secondary/50 text-white bg-transparent hover:bg-secondary/20 hover:text-white hover:shadow-[0_0_20px_rgba(167,139,250,0.4)] transition-all"
+              className="glass rounded-xl px-8 h-14 text-lg font-bold border-secondary/50 text-white bg-transparent hover:bg-secondary/40 hover:text-white hover:shadow-[0_0_20px_rgba(167,139,250,0.4)] transition-all"
             >
               <a href="#contact">
                 {t("hero_contact")}
