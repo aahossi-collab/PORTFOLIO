@@ -40,7 +40,7 @@ export const PlaceHolderImages: ImagePlaceholder[] = [
   {
     "id": "vuln_scanner",
     "description": "VulnScanner - Security Dashboard",
-    "imageUrl": "/vulnscanner.png",
+    "imageUrl": "/vulnscanner.PNG",
     "imageHint": "cybersecurity dashboard"
   },
   {
