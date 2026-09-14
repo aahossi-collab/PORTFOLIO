@@ -1,7 +1,7 @@
 
 "use client";
 
-import React from "react";
+import React, { useRef } from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { PlaceHolderImages } from "@/lib/placeholder-images";
@@ -52,6 +52,103 @@ const projects = [
   },
 ];
 
+function ProjectCard({ project, idx }: { project: any; idx: number }) {
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const img = PlaceHolderImages.find((p) => p.id === project.id);
+  
+  if (!img) return null;
+
+  const handleMouseEnter = () => {
+    if (videoRef.current) {
+      videoRef.current.play().catch(e => console.error("Error playing video:", e));
+    }
+  };
+
+  const handleMouseLeave = () => {
+    if (videoRef.current) {
+      videoRef.current.pause();
+    }
+  };
+
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 30 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ delay: idx * 0.1 }}
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
+      className={`group glass rounded-[40px] overflow-hidden transition-all duration-500 hover:-translate-y-4 ${project.color}`}
+    >
+      <div className="aspect-video relative overflow-hidden m-4 rounded-[30px] border border-white/10">
+        {project.videoUrl ? (
+          <video 
+            ref={videoRef}
+            src={project.videoUrl} 
+            loop 
+            muted 
+            playsInline 
+            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+          />
+        ) : (
+          <Image 
+            src={img.imageUrl} 
+            alt={project.title} 
+            fill 
+            className="object-cover group-hover:scale-110 transition-transform duration-700" 
+            data-ai-hint={img.imageHint}
+          />
+        )}
+        
+        <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-6 backdrop-blur-sm">
+          {project.url !== "#" && (
+            <a 
+              href={project.url} 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="w-14 h-14 glass rounded-full flex items-center justify-center text-white hover:bg-primary hover:text-black transition-colors border-white/20"
+            >
+              <ExternalLink size={24}/>
+            </a>
+          )}
+          {project.videoUrl && (
+            <div className="w-14 h-14 glass rounded-full flex items-center justify-center text-white border-white/20 pointer-events-none group-hover:hidden">
+              <Play size={24}/>
+            </div>
+          )}
+        </div>
+      </div>
+      <div className="p-8 space-y-6">
+        <div className="flex flex-wrap gap-2">
+          {project.tags.map(tag => (
+            <span key={tag} className="glass px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-widest text-primary border-primary/20">
+              {tag}
+            </span>
+          ))}
+        </div>
+        <h3 className="text-2xl font-bold text-white group-hover:text-primary transition-colors line-clamp-1">{project.title}</h3>
+        <p className="text-white/60 leading-relaxed font-light text-sm line-clamp-3">
+          {project.description}
+        </p>
+        {project.url !== "#" ? (
+          <a 
+            href={project.url} 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="flex items-center gap-2 text-primary font-bold uppercase tracking-widest text-xs group-hover:gap-4 transition-all"
+          >
+            Voir le Projet <ArrowRight size={16}/>
+          </a>
+        ) : (
+          <div className="flex items-center gap-2 text-primary/50 font-bold uppercase tracking-widest text-[10px]">
+            Survolez pour voir la démo <Play size={12}/>
+          </div>
+        )}
+      </div>
+    </motion.div>
+  );
+}
+
 export function Projects() {
   return (
     <section id="work" className="py-32">
@@ -69,87 +166,9 @@ export function Projects() {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
-          {projects.map((project, idx) => {
-            const img = PlaceHolderImages.find((p) => p.id === project.id);
-            if (!img) return null;
-            
-            return (
-              <motion.div
-                key={project.id}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: idx * 0.1 }}
-                className={`group glass rounded-[40px] overflow-hidden transition-all duration-500 hover:-translate-y-4 ${project.color}`}
-              >
-                <div className="aspect-video relative overflow-hidden m-4 rounded-[30px] border border-white/10">
-                  {project.videoUrl ? (
-                    <video 
-                      src={project.videoUrl} 
-                      autoPlay 
-                      loop 
-                      muted 
-                      playsInline 
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
-                    />
-                  ) : (
-                    <Image 
-                      src={img.imageUrl} 
-                      alt={project.title} 
-                      fill 
-                      className="object-cover group-hover:scale-110 transition-transform duration-700" 
-                      data-ai-hint={img.imageHint}
-                    />
-                  )}
-                  
-                  <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-6 backdrop-blur-sm">
-                    {project.url !== "#" && (
-                      <a 
-                        href={project.url} 
-                        target="_blank" 
-                        rel="noopener noreferrer"
-                        className="w-14 h-14 glass rounded-full flex items-center justify-center text-white hover:bg-primary hover:text-black transition-colors border-white/20"
-                      >
-                        <ExternalLink size={24}/>
-                      </a>
-                    )}
-                    {project.videoUrl && (
-                      <div className="w-14 h-14 glass rounded-full flex items-center justify-center text-white border-white/20">
-                        <Play size={24}/>
-                      </div>
-                    )}
-                  </div>
-                </div>
-                <div className="p-8 space-y-6">
-                  <div className="flex flex-wrap gap-2">
-                    {project.tags.map(tag => (
-                      <span key={tag} className="glass px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-widest text-primary border-primary/20">
-                        {tag}
-                      </span>
-                    ))}
-                  </div>
-                  <h3 className="text-2xl font-bold text-white group-hover:text-primary transition-colors line-clamp-1">{project.title}</h3>
-                  <p className="text-white/60 leading-relaxed font-light text-sm line-clamp-3">
-                    {project.description}
-                  </p>
-                  {project.url !== "#" ? (
-                    <a 
-                      href={project.url} 
-                      target="_blank" 
-                      rel="noopener noreferrer"
-                      className="flex items-center gap-2 text-primary font-bold uppercase tracking-widest text-xs group-hover:gap-4 transition-all"
-                    >
-                      Voir le Projet <ArrowRight size={16}/>
-                    </a>
-                  ) : (
-                    <div className="flex items-center gap-2 text-primary/50 font-bold uppercase tracking-widest text-[10px]">
-                      Vidéo de démonstration <Play size={12}/>
-                    </div>
-                  )}
-                </div>
-              </motion.div>
-            );
-          })}
+          {projects.map((project, idx) => (
+            <ProjectCard key={project.id} project={project} idx={idx} />
+          ))}
         </div>
       </div>
     </section>
