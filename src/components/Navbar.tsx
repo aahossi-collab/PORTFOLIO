@@ -59,7 +59,7 @@ export function Navbar() {
             onClick={() => setLanguage(language === "fr" ? "en" : "fr")}
           >
             <Globe className="h-3.5 w-3.5 text-primary" />
-            <span className="uppercase">{language === "fr" ? "EN" : "FR"}</span>
+            <span className="uppercase">{language === "fr" ? "FR" : "EN"}</span>
           </Button>
 
           <Button variant="ghost" size="icon" className="rounded-full text-white/60 hover:text-white">
@@ -76,7 +76,7 @@ export function Navbar() {
             onClick={() => setLanguage(language === "fr" ? "en" : "fr")}
           >
             <Globe className="h-3.5 w-3.5 text-primary" />
-            <span className="uppercase">{language === "fr" ? "EN" : "FR"}</span>
+            <span className="uppercase">{language === "fr" ? "FR" : "EN"}</span>
           </Button>
           <Button
             variant="ghost"

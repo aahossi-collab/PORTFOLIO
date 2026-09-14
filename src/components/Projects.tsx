@@ -1,4 +1,3 @@
-
 "use client";
 
 import React from "react";
@@ -21,17 +20,9 @@ const projects = [
     id: "hordmir_perfums",
     title: "HORDMIR Luxury Perfums",
     tags: ["E-commerce B2B", "Product Catalog", "Luxury Perfumes", "Wholesale"],
-    description: "HORDMIR est un grossiste de parfums de luxe, proposant un catalogue de plus de 350 références de prestige pour les revendeurs professionnels. La plateforme met en avant une sélection exclusive et un service B2B.",
+    description: "HORDMIR est un grossiste de parfums de luxe, proposing un catalogue de plus de 350 références de prestige pour les revendeurs professionnels. La plateforme met en avant une sélection exclusive et un service B2B.",
     url: "https://hordmir.com",
     color: "group-hover:border-secondary/50 group-hover:shadow-[0_0_30px_rgba(167,139,250,0.3)]"
-  },
-  {
-    id: "alexandre_moreau_coach",
-    title: "Alexandre Moreau — Coach de Vie & Performance",
-    tags: ["Sports Coaching", "Physical Transformation", "Performance", "Well-being"],
-    description: "Site web professionnel pour Alexandre Moreau, coach sportif certifié, spécialisé dans la transformation physique et la performance. Il propose un accompagnement personnalisé pour la perte de poids et la prise de muscle.",
-    url: "https://site-web-sport.vercel.app",
-    color: "group-hover:border-accent/50 group-hover:shadow-[0_0_30px_rgba(244,114,182,0.3)]"
   },
   {
     id: "chouf_casa",
@@ -59,7 +50,7 @@ export function Projects() {
           </div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
           {projects.map((project, idx) => {
             const img = PlaceHolderImages.find((p) => p.id === project.id);
             if (!img) return null;
