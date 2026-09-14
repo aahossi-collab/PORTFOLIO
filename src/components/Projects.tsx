@@ -15,7 +15,7 @@ const projects = [
     tags: ["DevSecOps", "CI/CD", "Docker", "Security"],
     description: "Conception et déploiement d'une architecture DevSecOps intégrant la CI/CD, la conteneurisation et des mécanismes de sécurité pour une application web.",
     url: "#",
-    videoUrl: "/devsecops.mp4",
+    videoUrl: "/devsecops.mov",
     color: "group-hover:border-primary/50 group-hover:shadow-[0_0_30px_rgba(0,245,255,0.3)]"
   },
   {
@@ -40,7 +40,7 @@ const projects = [
     tags: ["E-commerce B2B", "Luxury Perfumes", "Wholesale"],
     description: "Grossiste de parfums de luxe, proposant un catalogue de plus de 350 références de prestige pour les revendeurs professionnels.",
     url: "https://hordmir.com",
-    color: "group-hover:border-secondary/50 group-hover:shadow-[0_0_30_rgba(167,139,250,0.3)]"
+    color: "group-hover:border-secondary/50 group-hover:shadow-[0_0_30px_rgba(167,139,250,0.3)]"
   },
   {
     id: "chouf_casa",
