@@ -94,7 +94,7 @@ export function Hero() {
               asChild
               className="glass rounded-xl px-8 h-14 text-lg font-bold border-primary/50 text-white hover:bg-primary/20 hover:shadow-[0_0_20px_rgba(0,245,255,0.4)] transition-all flex items-center gap-2"
             >
-              <a href="/CV.pdf" target="_blank" rel="noopener noreferrer">
+              <a href="/Ana_CV.pdf" target="_blank" rel="noopener noreferrer">
                 {t("hero_cv")} <Download size={20} />
               </a>
             </Button>

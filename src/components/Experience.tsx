@@ -7,6 +7,13 @@ import { Briefcase, GraduationCap } from "lucide-react";
 
 const workExperience = [
   {
+    title: "Consultante Développeuse Web & Sécurité",
+    company: "IBM Consulting",
+    period: "Mai 2026 - Août 2026",
+    description: "Refonte complète du site web institutionnel, réalisation de tests de sécurité applicatifs et développement d'un espace sécurisé dédié à la gestion confidentielle des dossiers.",
+    accent: "border-t-primary shadow-[0_-5px_15px_-5px_rgba(0,245,255,0.4)]"
+  },
+  {
     title: "Développeuse Web Full-stack",
     company: "PERO GROUPE",
     period: "Janv. 2025 - Sept. 2025",
