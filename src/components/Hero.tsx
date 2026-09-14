@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/button";
 import { Download } from "lucide-react";
 import { useLanguage } from "@/context/LanguageContext";
 
-const techStack = ["React", "Vue.js", "TypeScript", "Python", "Wireshark", "Nmap", "Figma", "Node.js"];
+const techStack = ["React Native", "Next.js", "Flutter", "Burp Suite", "OWASP", "TypeScript", "Python", "Metasploit"];
 
 const floatingIcons = [
   {
@@ -42,8 +42,8 @@ export function Hero() {
   const [isDeleting, setIsDeleting] = useState(false);
 
   const titles = language === "fr" 
-    ? ["Développeuse Front-end", "Cybersécurité", "Architecture logicielle", "Ingénieure Informatique & IA"]
-    : ["Front-end Developer", "Cybersecurity", "Software Architecture", "Computer Science & AI Engineer"];
+    ? ["Dév. Web & Mobile Sécurisé", "Audit de Sécurité / Pentesting", "Cybersécurité Appliquée", "Ingénieure Informatique & IA"]
+    : ["Secure Web & Mobile Dev", "Security Audit / Pentesting", "Applied Cybersecurity", "Computer Science & AI Engineer"];
 
   useEffect(() => {
     const currentTitle = titles[index];
@@ -64,7 +64,7 @@ export function Hero() {
       }
     }, speed);
 
-    return () => setTimeout(timeout);
+    return () => clearTimeout(timeout);
   }, [displayText, isDeleting, index, titles]);
 
   return (
@@ -143,7 +143,7 @@ export function Hero() {
                 alt={icon.name} 
                 className="w-10 h-10 lg:w-12 lg:h-12 object-contain" 
               />
-                </motion.div>
+            </motion.div>
           ))}
         </div>
       </div>
