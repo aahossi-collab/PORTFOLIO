@@ -42,5 +42,11 @@ export const PlaceHolderImages: ImagePlaceholder[] = [
     "description": "VulnScanner - Security Dashboard",
     "imageUrl": "https://picsum.photos/seed/cybersecurity/800/600",
     "imageHint": "cybersecurity dashboard"
+  },
+  {
+    "id": "devsecops_arch",
+    "description": "Architecture DevSecOps",
+    "imageUrl": "https://picsum.photos/seed/devsecops/800/600",
+    "imageHint": "devops pipeline"
   }
 ];

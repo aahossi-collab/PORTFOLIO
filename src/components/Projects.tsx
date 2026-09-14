@@ -6,13 +6,22 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import { PlaceHolderImages } from "@/lib/placeholder-images";
 import { Badge } from "@/components/ui/badge";
-import { ExternalLink, ArrowRight } from "lucide-react";
+import { ExternalLink, ArrowRight, Play } from "lucide-react";
 
 const projects = [
   {
+    id: "devsecops_arch",
+    title: "Architecture DevSecOps",
+    tags: ["DevSecOps", "CI/CD", "Docker", "Security"],
+    description: "Conception et déploiement d'une architecture DevSecOps intégrant la CI/CD, la conteneurisation et des mécanismes de sécurité pour une application web.",
+    url: "#",
+    videoUrl: "/devsecops.mp4",
+    color: "group-hover:border-primary/50 group-hover:shadow-[0_0_30px_rgba(0,245,255,0.3)]"
+  },
+  {
     id: "vuln_scanner",
     title: "VulnScanner",
-    tags: ["Cybersecurity", "Pentesting", "Automation", "Security Audit"],
+    tags: ["Cybersecurity", "Pentesting", "Automation"],
     description: "Outil automatisé de détection de vulnérabilités web (XSS, SQLi) avec génération de rapports PDF professionnels et corrélation CVE en temps réel.",
     url: "https://vuln-scanner.netlify.app/",
     color: "group-hover:border-accent/50 group-hover:shadow-[0_0_30px_rgba(244,114,182,0.3)]"
@@ -20,24 +29,24 @@ const projects = [
   {
     id: "safewoman",
     title: "SafeWoman",
-    tags: ["Web Platform", "Community", "Support", "Security", "Resources"],
-    description: "SafeWoman est une plateforme de soutien et de sécurité dédiée aux femmes. Elle vise à créer une communauté bienveillante et à fournir des ressources pour aider les femmes à faire face à l'adversité.",
+    tags: ["Web Platform", "Community", "Security"],
+    description: "Plateforme de soutien et de sécurité dédiée aux femmes. Crée une communauté bienveillante et fournit des ressources pour faire face à l'adversité.",
     url: "https://safewoman.netlify.app",
     color: "group-hover:border-primary/50 group-hover:shadow-[0_0_30px_rgba(0,245,255,0.3)]"
   },
   {
     id: "hordmir_perfums",
     title: "HORDMIR Luxury Perfums",
-    tags: ["E-commerce B2B", "Product Catalog", "Luxury Perfumes", "Wholesale"],
-    description: "HORDMIR est un grossiste de parfums de luxe, proposant un catalogue de plus de 350 références de prestige pour les revendeurs professionnels.",
+    tags: ["E-commerce B2B", "Luxury Perfumes", "Wholesale"],
+    description: "Grossiste de parfums de luxe, proposant un catalogue de plus de 350 références de prestige pour les revendeurs professionnels.",
     url: "https://hordmir.com",
-    color: "group-hover:border-secondary/50 group-hover:shadow-[0_0_30px_rgba(167,139,250,0.3)]"
+    color: "group-hover:border-secondary/50 group-hover:shadow-[0_0_30_rgba(167,139,250,0.3)]"
   },
   {
     id: "chouf_casa",
     title: "Chouf Casa",
-    tags: ["City Guide", "Urban Exploration", "Favorites Management", "Interactive Map"],
-    description: "Chouf Casa est une plateforme d'exploration de Casablanca. Elle permet de découvrir des lieux, des itinéraires, des cartes et de gérer ses favoris avec des filtres intelligents.",
+    tags: ["City Guide", "Urban Exploration", "Interactive Map"],
+    description: "Plateforme d'exploration de Casablanca. Permet de découvrir des lieux, des itinéraires et de gérer ses favoris avec des filtres intelligents.",
     url: "https://chouf-casa.vercel.app",
     color: "group-hover:border-primary/50 group-hover:shadow-[0_0_30px_rgba(0,245,255,0.3)]"
   },
@@ -59,7 +68,7 @@ export function Projects() {
           </div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-10">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
           {projects.map((project, idx) => {
             const img = PlaceHolderImages.find((p) => p.id === project.id);
             if (!img) return null;
@@ -74,22 +83,41 @@ export function Projects() {
                 className={`group glass rounded-[40px] overflow-hidden transition-all duration-500 hover:-translate-y-4 ${project.color}`}
               >
                 <div className="aspect-video relative overflow-hidden m-4 rounded-[30px] border border-white/10">
-                  <Image 
-                    src={img.imageUrl} 
-                    alt={project.title} 
-                    fill 
-                    className="object-cover group-hover:scale-110 transition-transform duration-700" 
-                    data-ai-hint={img.imageHint}
-                  />
+                  {project.videoUrl ? (
+                    <video 
+                      src={project.videoUrl} 
+                      autoPlay 
+                      loop 
+                      muted 
+                      playsInline 
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                    />
+                  ) : (
+                    <Image 
+                      src={img.imageUrl} 
+                      alt={project.title} 
+                      fill 
+                      className="object-cover group-hover:scale-110 transition-transform duration-700" 
+                      data-ai-hint={img.imageHint}
+                    />
+                  )}
+                  
                   <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-6 backdrop-blur-sm">
-                    <a 
-                      href={project.url} 
-                      target="_blank" 
-                      rel="noopener noreferrer"
-                      className="w-14 h-14 glass rounded-full flex items-center justify-center text-white hover:bg-primary hover:text-black transition-colors border-white/20"
-                    >
-                      <ExternalLink size={24}/>
-                    </a>
+                    {project.url !== "#" && (
+                      <a 
+                        href={project.url} 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        className="w-14 h-14 glass rounded-full flex items-center justify-center text-white hover:bg-primary hover:text-black transition-colors border-white/20"
+                      >
+                        <ExternalLink size={24}/>
+                      </a>
+                    )}
+                    {project.videoUrl && (
+                      <div className="w-14 h-14 glass rounded-full flex items-center justify-center text-white border-white/20">
+                        <Play size={24}/>
+                      </div>
+                    )}
                   </div>
                 </div>
                 <div className="p-8 space-y-6">
@@ -104,14 +132,20 @@ export function Projects() {
                   <p className="text-white/60 leading-relaxed font-light text-sm line-clamp-3">
                     {project.description}
                   </p>
-                  <a 
-                    href={project.url} 
-                    target="_blank" 
-                    rel="noopener noreferrer"
-                    className="flex items-center gap-2 text-primary font-bold uppercase tracking-widest text-xs group-hover:gap-4 transition-all"
-                  >
-                    Voir le Projet <ArrowRight size={16}/>
-                  </a>
+                  {project.url !== "#" ? (
+                    <a 
+                      href={project.url} 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="flex items-center gap-2 text-primary font-bold uppercase tracking-widest text-xs group-hover:gap-4 transition-all"
+                    >
+                      Voir le Projet <ArrowRight size={16}/>
+                    </a>
+                  ) : (
+                    <div className="flex items-center gap-2 text-primary/50 font-bold uppercase tracking-widest text-[10px]">
+                      Vidéo de démonstration <Play size={12}/>
+                    </div>
+                  )}
                 </div>
               </motion.div>
             );
