@@ -1,3 +1,4 @@
+
 "use client";
 
 import React from "react";
@@ -9,10 +10,18 @@ import { ExternalLink, ArrowRight } from "lucide-react";
 
 const projects = [
   {
+    id: "vuln_scanner",
+    title: "VulnScanner",
+    tags: ["Cybersecurity", "Pentesting", "Automation", "Security Audit"],
+    description: "Outil automatisé de détection de vulnérabilités web (XSS, SQLi) avec génération de rapports PDF professionnels et corrélation CVE en temps réel.",
+    url: "https://vuln-scanner.netlify.app/",
+    color: "group-hover:border-accent/50 group-hover:shadow-[0_0_30px_rgba(244,114,182,0.3)]"
+  },
+  {
     id: "safewoman",
     title: "SafeWoman",
     tags: ["Web Platform", "Community", "Support", "Security", "Resources"],
-    description: "SafeWoman est une plateforme de soutien et de sécurité dédiée aux femmes. Elle vise à créer une communauté bienveillante et à fournir des ressources pour aider les femmes à faire face à l'adversité, garantissant qu'elles ne se sentent jamais seules.",
+    description: "SafeWoman est une plateforme de soutien et de sécurité dédiée aux femmes. Elle vise à créer une communauté bienveillante et à fournir des ressources pour aider les femmes à faire face à l'adversité.",
     url: "https://safewoman.netlify.app",
     color: "group-hover:border-primary/50 group-hover:shadow-[0_0_30px_rgba(0,245,255,0.3)]"
   },
@@ -20,7 +29,7 @@ const projects = [
     id: "hordmir_perfums",
     title: "HORDMIR Luxury Perfums",
     tags: ["E-commerce B2B", "Product Catalog", "Luxury Perfumes", "Wholesale"],
-    description: "HORDMIR est un grossiste de parfums de luxe, proposing un catalogue de plus de 350 références de prestige pour les revendeurs professionnels. La plateforme met en avant une sélection exclusive et un service B2B.",
+    description: "HORDMIR est un grossiste de parfums de luxe, proposant un catalogue de plus de 350 références de prestige pour les revendeurs professionnels.",
     url: "https://hordmir.com",
     color: "group-hover:border-secondary/50 group-hover:shadow-[0_0_30px_rgba(167,139,250,0.3)]"
   },
@@ -28,7 +37,7 @@ const projects = [
     id: "chouf_casa",
     title: "Chouf Casa",
     tags: ["City Guide", "Urban Exploration", "Favorites Management", "Interactive Map"],
-    description: "Chouf Casa est une plateforme d'exploration de Casablanca, la 'Ville Blanche'. Elle permet de découvrir des lieux, des itinéraires, des cartes et de gérer ses favoris avec des filtres intelligents.",
+    description: "Chouf Casa est une plateforme d'exploration de Casablanca. Elle permet de découvrir des lieux, des itinéraires, des cartes et de gérer ses favoris avec des filtres intelligents.",
     url: "https://chouf-casa.vercel.app",
     color: "group-hover:border-primary/50 group-hover:shadow-[0_0_30px_rgba(0,245,255,0.3)]"
   },
@@ -41,16 +50,16 @@ export function Projects() {
         <div className="flex flex-col md:flex-row justify-between items-end mb-24 gap-8">
           <div className="space-y-4">
             <h2 className="text-5xl font-bold text-gradient-cyan-violet">Projets</h2>
-            <p className="text-white/60 text-xl font-light">Mes dernières réalisations numériques</p>
+            <p className="text-white/60 text-xl font-light">Mes dernières réalisations numériques & cybersécurité</p>
           </div>
           <div className="flex gap-4 glass p-2 rounded-2xl">
             <Badge className="bg-primary text-black hover:bg-primary/80 px-4 py-2 rounded-xl border-none font-bold">Tous</Badge>
+            <Badge variant="ghost" className="text-white/60 hover:text-white px-4 py-2 rounded-xl font-bold">Sécurité</Badge>
             <Badge variant="ghost" className="text-white/60 hover:text-white px-4 py-2 rounded-xl font-bold">Web</Badge>
-            <Badge variant="ghost" className="text-white/60 hover:text-white px-4 py-2 rounded-xl font-bold">UI/UX</Badge>
           </div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-10">
           {projects.map((project, idx) => {
             const img = PlaceHolderImages.find((p) => p.id === project.id);
             if (!img) return null;

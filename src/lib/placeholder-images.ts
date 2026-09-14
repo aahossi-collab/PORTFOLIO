@@ -22,7 +22,7 @@ export const PlaceHolderImages: ImagePlaceholder[] = [
   {
     "id": "safewoman",
     "description": "SafeWoman Platform",
-    "imageUrl": "/safewoman1.png",
+    "imageUrl": "/safewoman.png",
     "imageHint": "women community"
   },
   {
@@ -32,15 +32,15 @@ export const PlaceHolderImages: ImagePlaceholder[] = [
     "imageHint": "luxury perfume"
   },
   {
-    "id": "alexandre_moreau_coach",
-    "description": "Alexandre Moreau Coach",
-    "imageUrl": "/sport.PNG",
-    "imageHint": "fitness coach"
-  },
-  {
     "id": "chouf_casa",
     "description": "Chouf Casa - Explore Casablanca",
-    "imageUrl": "/chouf-casa.PNG",
+    "imageUrl": "/chouf-casa.png",
     "imageHint": "casablanca exploration"
+  },
+  {
+    "id": "vuln_scanner",
+    "description": "VulnScanner - Security Dashboard",
+    "imageUrl": "https://picsum.photos/seed/cybersecurity/800/600",
+    "imageHint": "cybersecurity dashboard"
   }
 ];
