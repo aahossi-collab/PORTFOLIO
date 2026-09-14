@@ -90,16 +90,22 @@ export function Hero() {
             {t("hero_desc")}
           </p>
           <div className="flex flex-wrap gap-6 pt-4">
-            <a href="/CV.pdf" target="_blank" rel="noopener noreferrer">
-              <Button className="glass rounded-xl px-8 h-14 text-lg font-bold border-primary/50 text-white hover:bg-primary/20 hover:shadow-[0_0_20px_rgba(0,245,255,0.4)] transition-all flex items-center gap-2">
+            <Button 
+              asChild
+              className="glass rounded-xl px-8 h-14 text-lg font-bold border-primary/50 text-white hover:bg-primary/20 hover:shadow-[0_0_20px_rgba(0,245,255,0.4)] transition-all flex items-center gap-2"
+            >
+              <a href="/CV.pdf" target="_blank" rel="noopener noreferrer">
                 {t("hero_cv")} <Download size={20} />
-              </Button>
-            </a>
-            <a href="#contact">
-              <Button className="glass rounded-xl px-8 h-14 text-lg font-bold border-secondary/50 text-white bg-transparent hover:bg-secondary/20 hover:text-white hover:shadow-[0_0_20px_rgba(167,139,250,0.4)] transition-all">
+              </a>
+            </Button>
+            <Button 
+              asChild
+              className="glass rounded-xl px-8 h-14 text-lg font-bold border-secondary/50 text-white bg-transparent hover:bg-secondary/20 hover:text-white hover:shadow-[0_0_20px_rgba(167,139,250,0.4)] transition-all"
+            >
+              <a href="#contact">
                 {t("hero_contact")}
-              </Button>
-            </a>
+              </a>
+            </Button>
           </div>
         </motion.div>
 
